@@ -1,0 +1,36 @@
+@background: #0A4657; 
+@blueish: #0E6881;
+@forground: white;
+@border: white;
+@headlink: #FAFBE9;
+
+.picker {
+	color: @headlink;
+	width: 320px;
+	li {
+		float: left;
+		padding: 15px 0px !important;
+		text-align: center;
+		font-stretch: 11;
+  	letter-spacing: 2px;
+		font-family: helvetica;
+		font-size: 13px;
+		text-transform: none;
+	}
+	strong {
+		float: right;
+	}
+}
+#colorpicker {
+	li {	
+		background: @blueish !important;
+		width: 25%;
+	}
+}
+
+#numberpicker {
+	li {
+		background: #056856 !important;
+		width: 20%;
+	}
+}

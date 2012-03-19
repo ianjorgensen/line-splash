@@ -1,0 +1,71 @@
+<li style='display:block'>
+              <ul id='colorpicker'>
+                <li>
+                  <div class="icon icon-disc">
+                    <div class="icon-disc-circle icon-circle"></div>
+                    <div class="icon-disc-dot icon-shape"></div>
+                    <span class="name">target</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="icon icon-down">
+                    <div class="icon-down-circle icon-circle"></div>
+                    <div class="icon-down-triangle"></div>
+                    <div class="icon-down-line icon-shape"></div>
+                    <span class="name">low</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="icon icon-up">
+                    <div class="icon-up-circle icon-circle"></div>
+                    <div class="icon-up-triangle"></div>
+                    <div class="icon-up-line icon-shape"></div>
+                    <span class="name">high</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="icon icon-smile">
+                    <div class="icon-smile-circle icon-circle"></div>
+                    <div class="icon-smile-dot-1 icon-shape"></div>
+                    <div class="icon-smile-dot-2 icon-shape"></div>
+                    <div class="icon-smile-line icon-shape"></div>
+                    <span class="name">perfect</span>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li style='display:block'>
+              <ul id='numberpicker'>
+                <li>
+                  <div class="icon icon-disc">
+                    <div class="icon-disc-circle icon-circle"></div>
+                    <div class="icon-disc-dot icon-shape"></div>
+                    <span class="name">target</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="icon icon-down">
+                    <div class="icon-down-circle icon-circle"></div>
+                    <div class="icon-down-triangle"></div>
+                    <div class="icon-down-line icon-shape"></div>
+                    <span class="name">low</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="icon icon-up">
+                    <div class="icon-up-circle icon-circle"></div>
+                    <div class="icon-up-triangle"></div>
+                    <div class="icon-up-line icon-shape"></div>
+                    <span class="name">high</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="icon icon-plus">
+                    <div class="icon-plus-circle icon-circle"></div>
+                    <div class="icon-plus-line-1 icon-shape"></div>
+                    <div class="icon-plus-line-2 icon-shape"></div>
+                    <span class="name">count</span>
+                  </div>
+                </li>
+              </ul>
+            </li>

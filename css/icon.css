@@ -1,0 +1,190 @@
+@background: white;
+/*RGB(39,102,134);*/
+@forground: #276686;
+@selected: #A41E56;
+
+#colorpicker {
+  width: 320px;
+
+  li {
+      float: left;
+      text-align: center;
+      padding: 6px 0px 14px 0px;
+      background: @background;
+      width: 25%;
+      margin: 0;
+      height: 62px;
+      color: @forground;
+  }
+  /*li:hover .icon-circle {
+      background-color: @selected !important;
+    }
+    li:hover .name {
+      color: @selected;
+    }*/
+
+
+  .clear {
+    clear: both;
+  }
+
+  .icon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  margin-left: 21px;
+  margin-top: 6px;
+
+  }
+
+  .icon-shape {
+  background-color: @background !important;	
+  }
+
+  .icon .name {
+  width: 32px;
+  position: absolute;
+  text-align: center;
+  top: 44px;
+  left: 3px;
+  font-family: helvetica;
+  font-size: small;
+  }
+
+  .icon-circle {
+  background-color: @forground;
+  border-radius: 39px;
+  -webkit-border-radius: 22px;
+  -moz-border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  }
+
+  .icon-up-line {
+  background-color: white;
+  border-radius: 8px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 8px;
+  width: 7px;
+  height: 20px;
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  }
+  .icon-up-triangle {
+  border: 10px solid @background;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: -2px;
+  left: 10px;
+  }
+  .icon-down-line {
+  background-color: white;
+  border-radius: 8px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 8px;
+  width: 7px;
+  height: 20px;
+  position: absolute;
+  bottom: -11px;
+  left: 16px;
+  }
+  .icon-down-triangle {
+  border: 10px solid @background;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  height: 0;
+  width: 0;
+  position: absolute;
+  bottom: -26px;
+  left: 10px;
+  }
+  .icon-disc-dot {
+  background-color: white;
+  border-radius: 2px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 2px;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 13px;
+  left: 12px;
+  }
+  .icon-smile-dot-1 {
+  background-color: white;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 2px;
+  width: 6px;
+  height: 7px;
+  position: absolute;
+  top: 9px;
+  left: 12px;
+  }
+  .icon-smile-dot-2 {
+  background-color: white;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 2px;
+  width: 6px;
+  height: 7px;
+  position: absolute;
+  top: 9px;
+  left: 22px;
+  }
+  .icon-smile-line {
+  background-color: white;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  -moz-border-radius-bottomleft: 8px;
+  -moz-border-radius-bottomright: 8px;
+  width: 18px;
+  height: 8px;
+  position: absolute;
+  top: 23px;
+  left: 11px;
+  }
+
+
+  .icon-plus-circle {
+  background-color: #000;
+  border-radius:8px;
+  -webkit-border-radius:8px;
+  -moz-border-radius:8px;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top:0;
+  left:0;
+  }
+  .icon-plus-line-1 {
+  background-color: #fff;
+  width: 8px;
+  height: 2px;
+  border-radius: 1px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  position: absolute;
+  top:7px;
+  left: 4px;
+  }
+  .icon-plus-line-2 {
+  background-color: #fff;
+  width: 2px;
+  height: 8px;
+  border-radius: 1px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  position: absolute;
+  top:4px;
+  left: 7px;
+  }
+}

@@ -5,6 +5,8 @@ var port = process.argv[2] || 9090;
 
 server.get('/', serve.file('./html/splash.html'));
 
+server.get('/preview', serve.file('./html/home.html'));
+
 server.get('/js/*', serve.file('./js/{*}'));
 
 server.get('/css/*', serve.file('./css/{*}'));
