@@ -18,37 +18,45 @@ body {
 
 .bg {
 	width: 100%;
-	height: 580px;
+	height: 500px;
 	background: #F0F6F9;
 	background-image: url(https://d1g145x70srn7h.cloudfront.net/static/d36cd889cc929c195cde5124ecfdcbb6da7a8b08/images/public/noise.gif);
 }
 
 #hero {
-	margin-top: 10px;
- 	padding-bottom: 120px;
+	margin-top: 75px;
+	padding-bottom: 41px;
+	height: 380px;
 
+ 	.tell {
+ 		width: 700px;
+ 	}
+ 	.show {
+ 		width: 300px;	
+ 	}
 	p {
-		width: 700px;
 		font-size: 16px;
 		padding: 8px 0px;
 	}
 
 	figure {
-		position: absolute;
-		/*top: 18px;
-		left: 908px;*/
-		top: 39px;
-		left: 744px;
 		img {
-			height: 540px;	
+			height: 100px;
+			padding-top: 115px;
 		}
 	}
+
 }
 
 #intro {
 	font-size: 18px;
 	line-height: 26px;
 	color: #818486;
+}
+#player {
+	display: none;
+	padding-left: 20px;
+	padding-top: 70px;
 }
 h1 {
 	color: black;
@@ -146,7 +154,7 @@ margin-bottom: 3px;
 	.sideline {
 		position: absolute;
 		width: 10px;
-		height: 110px;
+		height: 80px;
 	}
 }
 
@@ -230,6 +238,7 @@ h2 {
 	}
 	.tell {
 		width: 390px;
+		text-align: left;
 	}
 }
 

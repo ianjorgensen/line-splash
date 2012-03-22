@@ -14,11 +14,11 @@
 	<script src="/js/lib/less.js"></script>
 	<script src="/js/lib/cycle.js"></script>
 	<script>
-		var slide = function(father) {
+		var slide = function(father, time) {
 			$(father + ' .slide').cycle({
 				fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
 				speed:    1000, 
-    		timeout:  5000 
+    		timeout:  time || 5000
 			});
 		};
 
@@ -26,6 +26,16 @@
 			slide('#data');
 			slide('#insight');
 			slide('#social');
+
+			$('#play').click(function(){
+			$('#player').html('<iframe src="http://player.vimeo.com/video/38994934?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'); 
+
+			$('#play').fadeOut(1500);
+			$('#hero .tell').animate({width:'500px'}, 1500, function() {
+					$('#player').fadeIn(4000);
+			});
+			
+		});
 		});
 	</script>
 </head>
@@ -38,17 +48,24 @@
 	</div-->
 	<article>
 		<section id="hero">
-			<div id='logo'></div>
-			<p>Managing Diabetes means managing data. Every day we are faced with individual numbers that make up a bigger, and more important picture. Without seeing trends in the data, how are we supposed to learn from it?</p>
-			<p>Line is a platform to visualize, contextualize and share blood sugar data. We'll be rolling out early versions of our product over the next couple of months. If you give us your email, we'll let you know when we are ready for you. Your involvment is what we need to make a product that will change people's lives.</p>
-			<form action="http://linehq.createsend.com/t/j/s/xhyik/" method="post" id="subForm">
-					<p>Keep me in the loop<span><input type="text" name="cm-xhyik-xhyik" placeholder='enter your email' id="xhyik-xhyik" size="25" /></span><a href='#' onclick='$("#subForm").submit()' id='submit'>+</a></p>
-					<p id='thanks'>We'll keep you in the loop!</p>
-					<p id='error'>Oops. The email doesnt look right, try again.</p>
-			</form>
-			<figure>
-				<img src='/img/hand.png'/>
-			</figure>
+			<div class='tell'>
+				<div id='logo'></div>
+				<p>Managing diabetes requires managing data. Living with diabetes we are faced with individual readings that make up a bigger, and more important picture. LINE is a social platform to visualize, contextualize and share blood sugar data.</p>
+				<p>We'll be rolling out early versions of our product to a small group of testers over the next couple of months. If you give us your email, we'll let you know when we are ready for you. Your involvement is what we need to make a product that will change people's lives.</p>
+				<form action="http://linehq.createsend.com/t/j/s/xhyik/" method="post" id="subForm">
+						<p>Keep me in the loop<span><input type="text" name="cm-xhyik-xhyik" placeholder='enter your email' id="xhyik-xhyik" size="25" /></span><a href='#' onclick='$("#subForm").submit()' id='submit'>+</a></p>
+						<p id='thanks'>We'll keep you in the loop!</p>
+						<p id='error'>Oops. The email doesnt look right, try again.</p>
+				</form>
+			</div>
+			<div class='show'>
+				<figure>
+					<a href='#' id='play'><img src='/img/icons/play.png'/></a>
+				</figure>
+				<div id='player'>
+				</div>
+			</div>
+			<div class='clear'></div>
 		</section>
 		<section id='slogan' class='area'>
 			<h2>Connecting the dots for people with type 1 diabetes.</h2>
@@ -74,30 +91,36 @@
 			<div class='content'>
 				<div style='float:left'>
 					<h2>See and explore your data.</h2>
-					<p class='intro'>Line vizualizes and lets you explore your data.
-					<br>Dive into your readings and start to see the big picture you never see.</p>
+					<p class='intro'>Dive into your readings see the big picture.</p>
 				</div>
 				<div class='clear'></div>
 				<div class='tell'>
 					<ul>
 						<li>
 							<h4>Vizualize</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur arcu lacus, fringilla sit amet elementum cursus, lobortis vitae odio. Vestibulum ut nunc ligula, eu faucibus lectus. Vestibulum eget ultrices sapien. In hac habitasse platea dictumst. Fusce a turpis ut risus laoreet ultrices id at mauris. Aenean dapibus ultricies odio non lacinia. In hac habitasse platea dictumst. </p>
+							<p>We need to be able to see and explore the larger picture. LINE connects disparate points and interactively visualizes the data enabling us to see trends between days weeks and months. Lets begin a conversation with our data.</p>
 						</li>
 						<li>
-							<h4>Details</h4>
-							<p>Set custom permissions for employees on your Square Register. Control access to specific features, settings, or sensitive information in your sales reports.</p>
+							<h4>Dive into the details</h4>
+							<p>Here we see how the week looks through individual numbers and individual days. These are the dots that make the line, we need them to understand how the big picture is made. We can really dive into the numbers day by day. In the context of a week. Switch from week view to an adjustable timeline.</p>
 						</li>
 						<li>
-							<h4>Explore</h4>
-							<p>With a single tap on your iPad, you can wirelessly print receipts or open your cash drawer to make change. </p>
+							<h4>Connect the rest of your life</h4>
+							<p>Diabetes is integrated into every aspect of life, blood sugars are effected by and effect our weight, exercise and our every day. LINE connects to your wethings scale and fitbit to pull in weight and activity, helps you undersdand the realation between wegith and your blood sugar that will help you keep an eye on your ketones. An often forgoten part of our treatment.
+								<br>Via our api you can connect your data to partner services, we believe we can do better than csv exports.
+							</p>
 						</li>
 					<ul>
 				</div>
 				<div class='show'>
 					<ul class='slide'>
-						<li class='landscape'><div><img src="/img/landscape.png" height="240" alt="Slide 3"></div></li>
-						<li class='portrait'><div><img src="/img/people.png" height="450" alt="Slide 2"></div></li>
+						<li class='portrait'><div><img src="/img/screens/phone.png" height="450" alt="Slide 2"></div></li>
+						<!--<li class='portrait'><div><img src="/img/screens/data-expand.png" height="450" alt="Slide 2"></div></li>
+						<li class='portrait'><div><img src="/img/screens/data-low.png" height="450" alt="Slide 2"></div></li>
+						<li class='portrait'><div><img src="/img/screens/data-count.png" height="450" alt="Slide 2"></div></li>-->
+						<li class='landscape'><div><img src="/img/screens/data-graph.png" height="240" alt="Slide 3"></div></li>
+						<li class='portrait'><div><img style='margin-left: -110px;' src="/img/screens/data-spiral.png" height="450" alt="Slide 2"></div></li>
+						<li class='portrait'><div><img src="/img/screens/connect3.png" height="450" alt="Slide 2"></div></li>
 					</ul>
 				</div>
 				<div class='clear'></div>
@@ -106,29 +129,34 @@
 		<section id='insight' class='right area'>
 			<div class='sideline'></div>
 			<div class='content'>
-				<h2>See and explore your data.</h2>
-				<p class='intro'>Line vizualizes and lets you explore your data.
-				<br>Dive into your readings and start to see the big picture you never see.</p>
+				<h2>Insights.</h2>
+				<p class='intro'>Start understanding</p>
 				<div class='show'>
 					<ul class='slide'>
-						<li class='portrait'><div><img src="/img/people.png" height="450" alt="Slide 2"></div></li>
-						<li class='portrait'><div><img src="/img/phone.png" height="450" alt="Slide 2"></div></li>
-						<li class='landscape'><div><img src="/img/landscape.png" height="240" alt="Slide 3"></div></li>
+						<li class='portrait'><div><img src="/img/screens/inisght-personal.png" height="450" alt="Slide 2"></div></li>
+						<li class='portrait'><div><img src="/img/screens/insight-community.png" height="450" alt="Slide 2"></div></li>
 					</ul>
 				</div>
 				<div class='tell'>
+					<p>Insights are an important part of changing learning into practice. We discover trends and prompts you to annotate your data when its important. Weekly insight reinforce good habits.</p>
+					<p>We filter out insights that are valuable for you from the community and help to remind you of your own.</p>
+					<p>Here is how we do it...</p>
 					<ul>
 						<li>
-							<h4>Vizualize</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur arcu lacus, fringilla sit amet elementum cursus, lobortis vitae odio. Vestibulum ut nunc ligula, eu faucibus lectus. Vestibulum eget ultrices sapien. In hac habitasse platea dictumst. Fusce a turpis ut risus laoreet ultrices id at mauris. Aenean dapibus ultricies odio non lacinia. In hac habitasse platea dictumst. </p>
+							<h4>Leniancy</h4>
+							<p>How many readings you take how consistent are you. Are you taking checking blood sugar at every time in the day. Have you checked your blood sugar at night lately.</p>
 						</li>
 						<li>
-							<h4>Details</h4>
-							<p>Set custom permissions for employees on your Square Register. Control access to specific features, settings, or sensitive information in your sales reports.</p>
+							<h4>Target practice</h4>
+							<p>How well you hit your targets this week compared to last week.</p>
 						</li>
 						<li>
-							<h4>Explore</h4>
-							<p>With a single tap on your iPad, you can wirelessly print receipts or open your cash drawer to make change. </p>
+							<h4>Time to explain yourself</h4>
+							<p>we ask you to explain what influenced the readings, days or weeks that stand out. That way you can come back and undersand what happend, learn from yourself.</p>
+						</li>
+						<li>
+							<h4>How you stack up to others</h4>
+							<p>We are all part of a comunity, with comunity insight we show you where you curently belong. And give you motivation through examples of others on how you can do better. We strongly belive that seeing others, can transform the way we see ourselves.</p>
 						</li>
 					<ul>
 				</div>
@@ -138,30 +166,19 @@
 		<section id='social' class='area'>
 			<div class='sideline'></div>
 			<div class='content'>
-				<h2>See and explore your data.</h2>
-				<p class='intro'>Line vizualizes and lets you explore your data.
-				<br>Dive into your readings and start to see the big picture you never see.</p>
+				<h2>Two lines are better than one.</h2>
+				<p class='intro'>Start connecting and relating to people and their data</p>
 				<div class='tell'>
-					<ul>
-						<li>
-							<h4>Vizualize</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur arcu lacus, fringilla sit amet elementum cursus, lobortis vitae odio. Vestibulum ut nunc ligula, eu faucibus lectus. Vestibulum eget ultrices sapien. In hac habitasse platea dictumst. Fusce a turpis ut risus laoreet ultrices id at mauris. Aenean dapibus ultricies odio non lacinia. In hac habitasse platea dictumst. </p>
-						<li>
-						</li>
-							<h4>Details</h4>
-							<p>Set custom permissions for employees on your Square Register. Control access to specific features, settings, or sensitive information in your sales reports.</p>
-						</li>
-						<li>
-							<h4>Explore</h4>
-							<p>With a single tap on your iPad, you can wirelessly print receipts or open your cash drawer to make change. </p>
-						</li>
-					<ul>
+					<p>LINE is set up for users to support one another through constructive feedback, to open dialogue about lifestyle and self care methods. sharing of data within a supportive community helps us learn new methods for dealing with the challenges that come with living with diabetes. And most importany they’ll help you keep you real.</p>
+					<p>The data is meaningful but its the stories behind the data that help us understand it. We all have good days and bad days. By seeing how other people deal with thier data we understand ourselves better.</p>
+					<p>We learn best from people like us. After building a profile on LINE you can connect with other people like you and see how they are doing. We believe that community and dialogue about our readings is curcial to learning.</p>
+					<p>Your data is yours, we’ll keep it safe and only visisble to your network.</p>
 				</div>
 				<div class='show'>
 					<ul class='slide'>
-						<li class='portrait'><div><img src="/img/people.png" height="450" alt="Slide 2"></div></li>
-						<li class='landscape'><div><img src="/img/landscape.png" height="240" alt="Slide 3"></div></li>
-						<li class='portrait'><div><img src="/img/phone.png" height="450" alt="Slide 2"></div></li>
+						<li class='portrait'><div><img src="/img/screens/people.png" height="450" alt="Slide 2"></div></li>
+						<li class='portrait'><div><img src="/img/screens/sara.png" height="450" alt="Slide 2"></div></li>
+						<li class='portrait'><div><img src="/img/screens/data-comment.png" height="440" alt="Slide 2"></div></li>
 					</ul>
 				</div>
 				<div class='clear'></div>
@@ -169,11 +186,9 @@
 		</section>
 		<section id='upload'>
 			<div class='tell'>
-			<h2>Uploading data is a breeze.</h2>
-			<p>Uploading data has never been so easy. Export the data and send it to upload@linehq.com with and we'll do the rest<br>
-				We accept all major export formats, but we think that Glooko is the best way to get data our of your meters, so we recoomned you go and buy one<br>
-				If you already have one then, what are you waiting for, send that email and start seeing the big picture!
-			</p>
+				<h2>Uploading data is a breeze.</h2>
+				<p>We think that easiest way to get data into LINE is through Glooko and  IBGstar, but export formats from major diabetes management applications will work too. If you can get the data of your meter you can get it into Line.</p>
+				<p>To get started simply send an email with your data to upload@linehq.com and we’ll do the rest. If you have any questions don’t hesitate to contact us, we love talking to our users.</p>
 			</div>
 			<div class='show'>
 				<ul>
@@ -195,10 +210,10 @@
 					<div class='contact'>
 						<ul>
 							<li class='twitter'>
-								<a href='http://twitter.com/skrugman'><img src='/img/icons/twitterLogowhite.png'></a>
+								<a href='http://twitter.com/ianjorgensen'><img src='/img/icons/twitterLogowhite.png'></a>
 							</li>
 							<li class='mail'>
-								<a href='http://twitter.com/skrugman'><img src='/img/icons/mail24white.png'></a>
+								<a href="mailto:ian@linehq.com"><img src='/img/icons/mail24white.png'></a>
 							</li>
 						</ul>
 					</div>
@@ -216,13 +231,13 @@
 								<a href='http://twitter.com/skrugman'><img src='/img/icons/twitterLogowhite.png'></a>
 							</li>
 							<li class='mail'>
-								<a href='http://twitter.com/skrugman'><img src='/img/icons/mail24white.png'></a>
+								<a href="mailto:sara@linehq.com"><img src='/img/icons/mail24white.png'></a>
 							</li>
 						</ul>
 					</div>
 					<text>
 						<div class='name'>Sara<br>Krugman</div>
-						<div class='title'>CPO<br>Invent</div>
+						<div class='title'>CPO<br>Inside Out</div>
 					</text>
 				</li>
 				<li class='brand n'>N</li>
@@ -231,16 +246,16 @@
 					<div class='contact'>
 						<ul>
 							<li class='twitter'>
-								<a href='http://twitter.com/skrugman'><img src='/img/icons/twitterLogowhite.png'></a>
+								<a href='http://twitter.com/andrewnip'><img src='/img/icons/twitterLogowhite.png'></a>
 							</li>
 							<li class='mail'>
-								<a href='http://twitter.com/skrugman'><img src='/img/icons/mail24white.png'></a>
+								<a href="mailto:andrew@linehq.com"><img src='/img/icons/mail24white.png'></a>
 							</li>
 						</ul>
 					</div>
 					<text>
 						<div class='name'>Andrew<br>Nip</div>
-						<div class='title'>Designer<br>Shape & Bold</div>
+						<div class='title'>Designer<br>Shape & Mold</div>
 					</text>
 				</li>
 				<li class='brand e'>E</li>
