@@ -1,3 +1,9 @@
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
 article {
 	margin: 0 auto;
 	margin-top: -500px;
@@ -99,7 +105,7 @@ form {
 	height: 15px;
 	background: lightgray;
 	margin: 0 7px;
-	border-radius: 10px;
+	.rounded-corners(10px)
 }
 
 #error {
@@ -323,7 +329,7 @@ section last {
 		padding-bottom: 30px;
 	}
 	img {
-		border-radius: 110px;
+		.rounded-corners(110px);
 		width: 160px;
 		height: 160px;
 	}
@@ -348,7 +354,7 @@ section last {
 		text-shadow: none;
 		background: black;
 		opacity: 0;
-		border-radius: 110px;
+		.rounded-corners(110px);
 		margin-left: -160px;
 
 		text {
@@ -451,6 +457,7 @@ section last {
 		padding-right: 75px;
 	}
 }
+
 .portrait div {
 	padding-left: 180px;
 	padding-right: 180px;
