@@ -57,20 +57,51 @@
 			});
 		};
 
+
+		var thanks = function() {
+			$('form').fadeOut(function() {
+				$('#thanks').fadeIn();
+			});
+		};
+
+		var error = function() {
+			$('form').fadeOut(function() {
+				$('#error').fadeIn();
+				setTimeout(function() {
+					$('#error').fadeOut(function() {
+						$('form').fadeIn();
+					});
+				}, 1500);
+			});
+		};
+
 		$(function(){
 			slide('#data', before.data);
 			slide('#insight', before.insight);
 			slide('#social', before.social);
 
 			$('#play').click(function(){
-			$('#player').html('<iframe src="http://player.vimeo.com/video/38994934?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'); 
+				$('#player').html('<iframe src="http://player.vimeo.com/video/38994934?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'); 
 
-			$('#play').fadeOut(1500);
-			$('#hero .tell').animate({width:'500px'}, 1500, function() {
-					$('#player').fadeIn(4000);
+				$('#play').fadeOut(1500);
+				$('#hero .tell').animate({width:'500px'}, 1500, function() {
+						$('#player').fadeIn(4000);
+				});
 			});
-			
-		});
+			$('#subForm').submit(function (e) {
+		    e.preventDefault();
+		    $.getJSON(
+		      this.action + "?callback=?",
+		      $(this).serialize(),
+		      function (data) {
+		        if (data.Status === 400) {
+		          error();
+		        } else { // 200
+		          thanks();
+		        }
+		      }
+		    );
+		  });
 		});
 	</script>
 </head>
@@ -89,9 +120,9 @@
 				<p>We'll be rolling out early versions of our product to a small group of testers over the next couple of months. If you give us your email, we'll let you know when we are ready for you. Your involvement is what we need to make a product that will change people's lives.</p>
 				<form action="http://linehq.createsend.com/t/j/s/xhyik/" method="post" id="subForm">
 						<p>Keep me in the loop<span><input type="text" name="cm-xhyik-xhyik" placeholder='enter your email' id="xhyik-xhyik" size="25" /></span><a href='#' onclick='$("#subForm").submit()' id='submit'>+</a></p>
-						<p id='thanks'>We'll keep you in the loop!</p>
-						<p id='error'>Oops. The email doesnt look right, try again.</p>
 				</form>
+				<p id='thanks'>We'll keep you in the loop!</p>
+				<p id='error'>Oops. The email doesnt look right, try again.</p>
 			</div>
 			<div class='show'>
 				<figure>

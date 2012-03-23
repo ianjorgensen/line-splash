@@ -72,14 +72,6 @@ form {
 	padding-top: 10px;
 }
 
-#thanks {
-		font-weight: bold;
-		font-size: 18px;
-		color: black;
-		display: none;
-		text-align:center;
-}
-
 #social .show .dots {
 	margin: 20px auto 0 auto;
 	width: 87px;
@@ -466,3 +458,24 @@ section last {
 .slide {
 	height: 450px;
 }
+
+	#thanks {
+			font-weight: bold;
+			font-size: 18px !important;
+			color: black;
+			display: none;
+			text-align:left;
+			font-weight: normal;
+			color: #434343;
+			padding-top: 18px !important;
+	}
+	#error {
+			font-weight: bold;
+			font-size: 18px !important;
+			color: black;
+			display: none;
+			text-align:left;
+			font-weight: normal;
+			color: #434343;
+			padding-top: 18px !important;
+	}
