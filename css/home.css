@@ -79,6 +79,37 @@ form {
 		display: none;
 		text-align:center;
 }
+
+#social .show .dots {
+	margin: 20px auto 0 auto;
+	width: 87px;
+}
+
+.green {
+	background: #128A56;
+}
+
+.blue {
+	background: #107B9A;
+}
+
+.pink {
+	background: #BB2261;
+}
+
+.lightgray {
+	background: lightgray;
+}
+
+.show .dots li {
+	float:left;
+	width: 15px;
+	height: 15px;
+	background: lightgray;
+	margin: 0 7px;
+	border-radius: 10px;
+}
+
 #error {
 		font-weight: bold;
 		font-size: 18px;
@@ -192,13 +223,23 @@ h3 {
 
 #data {
 	margin-top: 20px;
+	.dots {
+		margin-left: 238px;
+		margin-top: 20px;
+	}
 }
 #data .sideline {
 	background: #BB2261; /*background: #107B9A;*/
 }
 
-#insight .sideline {
-	background: #107B9A; /*blue*/
+#insight {
+	.sideline {
+		background: #107B9A; /*blue*/
+	}
+	.dots {
+		margin-left: 284px;
+		margin-top: 20px;
+	}
 }
 
 #social .sideline {

@@ -14,18 +14,53 @@
 	<script src="/js/lib/less.js"></script>
 	<script src="/js/lib/cycle.js"></script>
 	<script>
-		var slide = function(father, time) {
+
+		var before = {
+			data : function(old, li) {
+				var index = $(li).attr('id');
+				$.each($('#data .dots li'), function(i, item) {
+					color = 'lightgray';
+					if(i == index) {
+						color = '#BB2261'
+					}
+					$(item).css({background: color});
+				});
+			},
+			insight: function(old, li) {
+				var index = $(li).attr('id');
+				$.each($('#insight .dots li'), function(i, item) {
+					color = 'lightgray';
+					if(i == index) {
+						color = '#107B9A'
+					}
+					$(item).css({background: color});
+				});
+			},
+			social: function(old, li) {
+				var index = $(li).attr('id');
+				$.each($('#social .dots li'), function(i, item) {
+					color = 'lightgray';
+					if(i == index) {
+						color = '#128A56'
+					}
+					$(item).css({background: color});
+				});
+			}
+		};
+
+		var slide = function(father, before) {
 			$(father + ' .slide').cycle({
 				fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
 				speed:    1000, 
-    		timeout:  time || 5000
+    		timeout:  6000,
+    		before: before || function(){}
 			});
 		};
 
 		$(function(){
-			slide('#data');
-			slide('#insight');
-			slide('#social');
+			slide('#data', before.data);
+			slide('#insight', before.insight);
+			slide('#social', before.social);
 
 			$('#play').click(function(){
 			$('#player').html('<iframe src="http://player.vimeo.com/video/38994934?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'); 
@@ -114,13 +149,19 @@
 				</div>
 				<div class='show'>
 					<ul class='slide'>
-						<li class='portrait'><div><img src="/img/screens/phone.png" height="450" alt="Slide 2"></div></li>
+						<li id='0' class='portrait'><div><img src="/img/screens/phone.png" height="450" alt="Slide 2"></div></li>
 						<!--<li class='portrait'><div><img src="/img/screens/data-expand.png" height="450" alt="Slide 2"></div></li>
 						<li class='portrait'><div><img src="/img/screens/data-low.png" height="450" alt="Slide 2"></div></li>
 						<li class='portrait'><div><img src="/img/screens/data-count.png" height="450" alt="Slide 2"></div></li>-->
-						<li class='landscape'><div><img src="/img/screens/data-graph.png" height="240" alt="Slide 3"></div></li>
-						<li class='portrait'><div><img style='margin-left: -110px;' src="/img/screens/data-spiral.png" height="450" alt="Slide 2"></div></li>
-						<li class='portrait'><div><img src="/img/screens/connect3.png" height="450" alt="Slide 2"></div></li>
+						<li id='1' class='landscape'><div><img src="/img/screens/data-graph.png" height="240" alt="Slide 3"></div></li>
+						<li id='2' class='portrait'><div><img style='margin-left: -110px;' src="/img/screens/data-spiral.png" height="450" alt="Slide 2"></div></li>
+						<li id='3' class='portrait'><div><img src="/img/screens/connect3.png" height="450" alt="Slide 2"></div></li>
+					</ul>
+					<ul class='dots'>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
 					</ul>
 				</div>
 				<div class='clear'></div>
@@ -133,8 +174,12 @@
 				<p class='intro'>Start understanding</p>
 				<div class='show'>
 					<ul class='slide'>
-						<li class='portrait'><div><img src="/img/screens/inisght-personal.png" height="450" alt="Slide 2"></div></li>
-						<li class='portrait'><div><img src="/img/screens/insight-community.png" height="450" alt="Slide 2"></div></li>
+						<li id='0' class='portrait'><div><img src="/img/screens/inisght-personal.png" height="450" alt="Slide 2"></div></li>
+						<li id='1' class='portrait'><div><img src="/img/screens/insight-community.png" height="450" alt="Slide 2"></div></li>
+					</ul>
+					<ul class='dots'>
+						<li></li>
+						<li></li>
 					</ul>
 				</div>
 				<div class='tell'>
@@ -176,9 +221,14 @@
 				</div>
 				<div class='show'>
 					<ul class='slide'>
-						<li class='portrait'><div><img src="/img/screens/people.png" height="450" alt="Slide 2"></div></li>
-						<li class='portrait'><div><img src="/img/screens/sara.png" height="450" alt="Slide 2"></div></li>
-						<li class='portrait'><div><img src="/img/screens/data-comment.png" height="440" alt="Slide 2"></div></li>
+						<li id='0' class='portrait'><div><img src="/img/screens/people.png" height="450" alt="Slide 2"></div></li>
+						<li id='1' class='portrait'><div><img src="/img/screens/sara.png" height="450" alt="Slide 2"></div></li>
+						<li id='2' class='portrait'><div><img src="/img/screens/data-comment.png" height="440" alt="Slide 2"></div></li>
+					</ul>
+					<ul class='dots'>
+						<li class='current'></li>
+						<li></li>
+						<li></li>
 					</ul>
 				</div>
 				<div class='clear'></div>
@@ -219,7 +269,7 @@
 					</div>
 					<text>
 						<div class='name'>Ian<br>Jorgensen</div>
-						<div class='title'>CEO<br>Maker & Baker</div>
+						<div class='title'>Developer<br>Maker & Baker</div>
 					</text>
 				</li>
 				<li class='brand i'>I</li>
@@ -237,7 +287,7 @@
 					</div>
 					<text>
 						<div class='name'>Sara<br>Krugman</div>
-						<div class='title'>CPO<br>Inside Out</div>
+						<div class='title'>Designer<br>Inside Out</div>
 					</text>
 				</li>
 				<li class='brand n'>N</li>
@@ -255,7 +305,7 @@
 					</div>
 					<text>
 						<div class='name'>Andrew<br>Nip</div>
-						<div class='title'>Designer<br>Shape & Mold</div>
+						<div class='title'>Data Wiz<br>Shape & Mold</div>
 					</text>
 				</li>
 				<li class='brand e'>E</li>

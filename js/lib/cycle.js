@@ -707,6 +707,7 @@ function advance(opts, val) {
 	}
 
 	var cb = opts.onPrevNextEvent || opts.prevNextClick; // prevNextClick is deprecated
+	console.log(cb);
 	if ($.isFunction(cb))
 		cb(val > 0, opts.nextSlide, els[opts.nextSlide]);
 	go(els, opts, 1, val>=0);
