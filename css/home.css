@@ -10,6 +10,7 @@ article {
 	width: 1020px;
 
 }
+
 #logo {
 	background: url('/img/logo-color.png');
 	width: 400px;
@@ -36,6 +37,7 @@ body {
 
  	.tell {
  		width: 700px;
+ 		padding-left: 20px;
  	}
  	.show {
  		width: 300px;	
@@ -486,3 +488,10 @@ section last {
 			color: #434343;
 			padding-top: 18px !important;
 	}
+
+.dots {
+	li {
+		cursor: pointer;
+	} 	
+}
+

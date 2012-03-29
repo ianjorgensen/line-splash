@@ -17,32 +17,34 @@
 	<script src="/js/lib/cycle.js"></script>
 	<script>
 
+		var index = {data:0, insight:0, social:0};
+
 		var before = {
 			data : function(old, li) {
-				var index = $(li).attr('id');
+				index.data = $(li).attr('id');
 				$.each($('#data .dots li'), function(i, item) {
 					color = 'lightgray';
-					if(i == index) {
-						color = '#BB2261'
+					if(i == index.data) {
+						color = '#BB2261';
 					}
 					$(item).css({background: color});
 				});
 			},
 			insight: function(old, li) {
-				var index = $(li).attr('id');
+				index.insight = $(li).attr('id');
 				$.each($('#insight .dots li'), function(i, item) {
 					color = 'lightgray';
-					if(i == index) {
+					if(i == index.insight) {
 						color = '#107B9A'
 					}
 					$(item).css({background: color});
 				});
 			},
 			social: function(old, li) {
-				var index = $(li).attr('id');
+				index.social = $(li).attr('id');
 				$.each($('#social .dots li'), function(i, item) {
 					color = 'lightgray';
-					if(i == index) {
+					if(i == index.social) {
 						color = '#128A56'
 					}
 					$(item).css({background: color});
@@ -55,10 +57,12 @@
 				fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
 				speed:    1000, 
     		timeout:  6000,
+    		pause:   1,
+    		pager:  father + ' .dots',
+    		onPagerEvent: function(i,index) {console.log(i,index)},
     		before: before || function(){}
 			});
 		};
-
 
 		var thanks = function() {
 			$('form').fadeOut(function() {
@@ -78,9 +82,27 @@
 		};
 
 		$(function(){
-			slide('#data', before.data);
-			slide('#insight', before.insight);
-			slide('#social', before.social);
+			slides = {
+				data: slide('#data', before.data),
+				insight: slide('#insight', before.insight),
+				social: slide('#social', before.social)
+			};
+
+			var over = function(name, color) {
+				return function() {
+					if(index[name] != $(this).attr('id')) {
+						$(this).css({background: color});
+					}	
+				}
+			}
+
+			$('#data .dots li').hover(over('data', '#EC98BB'),over('data', 'lightgray'));
+			$('#insight .dots li').hover(over('insight', '#17AFD9'),over('insight', 'lightgray'));
+			$('#social .dots li').hover(over('social', '#38E59A'),over('social', 'lightgray'));
+			
+			$($('#data .dots li')[0]).css({background: '#BB2261'});
+			$($('#insight .dots li')[0]).css({background: '#107B9A'});
+			$($('#social .dots li')[0]).css({background: '#128A56'});
 
 			$('#play').click(function(){
 				$('#player').html('<iframe src="http://player.vimeo.com/video/38994934?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'); 
@@ -191,10 +213,6 @@
 						<li id='3' class='portrait'><div><img src="/img/screens/connect3.png" height="450" alt="Slide 2"></div></li>
 					</ul>
 					<ul class='dots'>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
 					</ul>
 				</div>
 				<div class='clear'></div>
@@ -211,8 +229,6 @@
 						<li id='1' class='portrait'><div><img src="/img/screens/insight-community.png" height="450" alt="Slide 2"></div></li>
 					</ul>
 					<ul class='dots'>
-						<li></li>
-						<li></li>
 					</ul>
 				</div>
 				<div class='tell'>
@@ -259,9 +275,6 @@
 						<li id='2' class='portrait'><div><img src="/img/screens/data-comment.png" height="440" alt="Slide 2"></div></li>
 					</ul>
 					<ul class='dots'>
-						<li class='current'></li>
-						<li></li>
-						<li></li>
 					</ul>
 				</div>
 				<div class='clear'></div>
