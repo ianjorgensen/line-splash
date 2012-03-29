@@ -22,6 +22,15 @@
 		var before = {
 			data : function(old, li) {
 				index.data = $(li).attr('id');
+
+				$.each($('#data h4'), function(i, item) {
+					color = '#434343';
+					if(i == index.data) {
+						color = '#BB2261';
+					}
+					$(item).css({color: color});
+				});
+
 				$.each($('#data .dots li'), function(i, item) {
 					color = 'lightgray';
 					if(i == index.data) {
@@ -208,9 +217,9 @@
 						<!--<li class='portrait'><div><img src="/img/screens/data-expand.png" height="450" alt="Slide 2"></div></li>
 						<li class='portrait'><div><img src="/img/screens/data-low.png" height="450" alt="Slide 2"></div></li>
 						<li class='portrait'><div><img src="/img/screens/data-count.png" height="450" alt="Slide 2"></div></li>-->
+						<!--<li id='1' class='portrait'><div><img style='margin-left: -110px;' src="/img/screens/data-spiral.png" height="450" alt="Slide 2"></div></li>-->
 						<li id='1' class='landscape'><div><img src="/img/screens/data-graph.png" height="240" alt="Slide 3"></div></li>
-						<li id='2' class='portrait'><div><img style='margin-left: -110px;' src="/img/screens/data-spiral.png" height="450" alt="Slide 2"></div></li>
-						<li id='3' class='portrait'><div><img src="/img/screens/connect3.png" height="450" alt="Slide 2"></div></li>
+						<li id='2' class='portrait'><div><img src="/img/screens/connect3.png" height="450" alt="Slide 2"></div></li>
 					</ul>
 					<ul class='dots'>
 					</ul>
