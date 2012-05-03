@@ -23,3 +23,8 @@ server.listen(port);
 console.log('server running on port',port);
 
 process.on('uncaughtException', function(err) { console.log(err.stack) });
+
+
+Mensaje Gratis: Contesta PAY a este mensaje para confirmar que queres seguir con tu compra en Facebook. Precio total $5 + costos de envio
+
+Gracia. Tu compra fue confirmada. Este mensaje es parte de tu compra y cuesta $5 + costs the envio. Alluda? 77 34 57 73 o boku.com/help
