@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Anton Sven Jorgensen Test Results</title>
+	<style>
+	html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{background-color:#ff9;color:#000;text-decoration:none}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}
+	
+	.main {
+		margin-top: 40px;
+		width: 960px;
+		margin-left: auto;
+		margin-right: auto;
+		background: #FAFAFA;
+		font-family: helvetica;
+		padding: 40px;
+		margin-bottom: 40px;
+	}
+
+	.clear {
+		clear: both;
+	}
+	.header .profile {
+		float:left;
+		width: 480px;
+	}
+
+
+	.header .glance {
+		float:left;
+		width: 250px;
+	}
+	.header .questions {
+		float:left;
+		width: 200px;
+	}
+
+	h1, h2, h3, h4 { font-weight:normal;}
+
+	h1 {
+		font-size: 25px;
+		font-weight: normal;
+	}
+	h2 {
+		margin: 10px 0px 25px 0px;
+	}
+	.glance h3 {
+		margin-top: 5px;
+		margin-bottom: 10px;
+	}
+	.questions h3 {
+		margin-top: 5px;
+		margin-bottom: 10px;
+	}
+	.questions {
+		color: #666;
+	}
+	.profile {
+		color: #666;	
+	}
+	h3 {
+		font-size: 18px;
+		color: #666;
+	}
+
+
+	.left {
+		float:left;
+	}
+	.labels {
+		margin-top: 20px;
+	}
+	.labels .row {
+		margin-bottom: 20px;
+	}
+
+	.label {
+		text-transform: uppercase;
+		font-size: 15px;
+		color: #95CDEA;
+	}
+
+	.darkorange {
+		background: #A3512E;
+	}
+	.questions .box {
+		background: #D4EBF7;
+		padding: 20px;
+	}
+	.questions .text {
+		font-size: 15px;
+		padding-bottom: 10px;
+	}
+
+	.summary {
+		font-size: 15px;
+		color: #666;
+	}
+	.line {
+		padding-bottom: 3px;
+		padding-top: 3px;
+	}
+
+	.veredict {
+		width: 25px;
+		height: 35px;
+	}
+
+	.header .summary {
+		width: 210px;
+		padding: 10px 0px 10px 5px;
+	}
+
+	.label {
+		font-size: 11px;
+	}
+	.red {
+		background: rgb(143,49,56);
+	}
+	.orange {
+		background: rgb(186,105,65);
+	}
+	.green {
+		background: rgb(151,141,84);
+	}
+
+	.yellow {
+		background: rgb(219,170,84);
+	}
+	a {
+		text-decoration: none;
+	}
+	.labels .value {
+		margin-left: 10px;
+	}
+
+	.glance .row {
+		margin-bottom: 10px;
+	}
+
+	.glance {
+		padding-right: 30px;
+	}
+	.glance .summary {
+		background: #D4EBF7;
+		margin-left:10px;
+	}
+
+	.contact {
+		font-size: 15px;
+	}
+
+	h2 {
+		text-transform: uppercase;
+		color: #666;
+		font-size: 20px;
+		letter-spacing: 1px;
+	}
+
+	.block {
+		background: #D4EBF7;	
+		width: 470px;
+	}
+
+	.block {
+		background: #D4EBF7;	
+		width: 460px;
+	}
+
+	.rightblock {
+		background: #D4EBF7;	
+		width: 480px;
+		position: absolute;
+		margin-left: 480px;
+		top: 348px;
+	}
+
+	.badge {
+		margin-bottom: 10px;
+	}
+	.badge .summary {
+		background: #D4EBF7;	
+	}
+	.inner {
+		padding: 12px 15px;
+	}
+	.block h3 {
+		padding-bottom: 10px;
+	}
+	.rightblock h3 {
+		padding-bottom: 10px;
+	}
+	h4 {
+		font-size: 13px;
+		color: #8A8A8A;
+	}
+	.block {
+		margin-bottom: 20px;
+	}
+
+	.glucose .green {
+		width: 150px;
+	}
+	.glucose .orange {
+		width: 100px;
+	}
+	.glucose .red {
+		width: 120px;
+	}
+
+	.d .red {
+		width: 150px;
+	}
+	.d .orange {
+		width: 100px;
+	}
+	.d .green {
+		width: 120px;
+	}
+	.block .value {
+		margin-right: 10px;
+		padding: 5px;
+	}
+
+	.rightblock .value {
+		margin-right: 10px;
+		padding: 5px;
+	}
+
+	.range {
+		padding-top: 20px;
+		padding-bottom: 15px;
+	}
+	.range .value {
+		color: white;
+font-size: 14px;
+text-align: center;
+	}
+	.range .label {
+		color: #666;
+	}
+	.sepp {
+		padding-bottom: 5px;
+	}
+	.badge .veredict {
+		height: 40px;
+	}
+	.badge .summary {
+		margin-left: 10px;
+		width: 425px;
+		height: 40px;
+		padding-left: 10px;
+	}
+	.badge h3 {
+		padding-top: 4px;
+	}
+	.badge h4 {
+		padding-top: 1px;
+	}
+	.you {
+		font-size: 13px;
+		background: black;
+		color: white;
+		width: 60px;
+		text-align: center;
+		height: 20px;
+		margin-left: 148px;
+		padding-top: 6px;
+		margin-top: 3px;
+	}
+	.glucose .you {
+		margin-left: 148px;
+	}
+	</style>
+</head>
+<body>
+	<div class='main'>
+		<div class='header'>
+			<div class='profile'>
+				<h1>Anton Sven Jorgensen Test Results</h1>
+				<div class='labels'>
+					<div class='row'><div class='label left'>Laboratory</div><div class='value left'><a href='http://www.laboratoriahidalgo.com'>Hidalgo</a></div><div class='clear'></div></div>
+					<div class='row'><div class='label left'>Ordered By</div><div class='value left'>DR. Castellaro Carlos E</div><div class='clear'></div></div>
+					<div class='row'><div class='label left'>Date</div><div class='value left'>7 October 2010</div><div class='clear'></div></div>
+				</div>
+			</div>
+			<div class='glance'>
+				<h3>Your results at a glance</h3>
+				<div class='row'><div class='veredict left red'></div><div class='summary left'>Vitamin D levels are low.</div><div class='clear'></div></div>
+				<div class='row'><div class='veredict left orange'></div><div class='summary left'>LDL levels are borderline low.</div><div class='clear'></div></div>
+				<div class='row'><div class='veredict left green'></div><div class='summary left'>Cholesterol values are normal.</div><div class='clear'></div></div>
+				<div class='row'><div class='veredict left green'></div><div class='summary left'>Kidney functions are normal.</div><div class='clear'></div></div>
+			</div>
+			<div class='questions'>
+				<h3>Questions?</h3>
+				<div class='box'> 
+					<div class='text'>Contact the physician who orderde the results for further interpretation of the results.</div>
+					<div class='contact'>
+						<div class='dr line'>DR. Castellaro Carlos</div>
+						<div class='phone line'>(11) 4899-5300</div>
+						<div class='email line'><a href=''>info@hidalgolab.com</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='clear'></div>
+		<h2>results:</h2>
+		<div class='block'>
+			<div class='inner'>
+				<h3>Comprehensive Metabolic Panel</h3>
+				<h4>Glucose (fasting): 95 mg/dL</h4>
+				<div class='range glucose'>
+					<div class='label left' style='padding-left: 57px;'>normal</div>
+					<div class='label left' style='padding-left: 81px;'>prediabetes</div>
+					<div class='label left' style='padding-left: 29px;'>may indicate diabetes</div>
+					<div class='clear'></div>
+					<div class='sepp'></div>
+					<div class='value left green'>< 100</div>
+					<div class='value left orange'>100 to 125</div>
+					<div class='value left red'>> 125</div>
+					<div class='clear'></div>
+					<div class='you'>YOU: 95</div>
+				</div>
+			</div>
+		</div>
+		<div class='rightblock'>
+			<div class='inner'>
+				<h3>Lipid Profile</h3>
+				<h4>Total cholesterol: 182 mg/dL</h4>
+				<div class='range cholesterol'>
+					<div class='label left' style='padding-left: 57px;'>desired</div>
+					<div class='label left' style='padding-left: 79px;'>borderline</div>
+					<div class='label left' style='padding-left: 90px;'>high</div>
+					<div class='clear'></div>
+					<div class='sepp'></div>
+					<div style='width: 150px;' class='value left green'>< 200</div>
+					<div style='width: 90px;' class='value left orange'>200 to 240</div>
+					<div style='width: 150px;' class='value left red'>> 240</div>
+					<div class='clear'></div>
+					<div style='margin-left: 138px' class='you'>YOU: 182</div>
+				</div>
+				<div class='separate'></div>
+				<h4>HDL (*good* cholesterol): 55 mg/dL</h4>
+				<div class='range hdl'>
+					<div class='label left' style='padding-left: 99px;'>Low</div>
+					<div class='label left' style='padding-left: 186px;'>Normal</div>
+					<div class='clear'></div>
+					<div class='sepp'></div>
+					<div style='width: 205px;' class='value left red'>< 50</div>
+					<div style='width: 205px;' class='value left green'>> 50</div>
+					<div class='clear'></div>
+					<div class='you'>YOU: 55</div>
+				</div>
+				<div class='separate'></div>
+				<h4>LDL (*bad* cholesterol): 110 mg/dL</h4>
+				<div class='range ldl'>
+					<div class='label left' style='padding-left: 13px;'>optimal</div>
+					<div class='label left' style='padding-left: 20px;'>near-optimal</div>
+					<div class='label left' style='padding-left: 17px;'>borderline</div>
+					<div class='label left' style='padding-left: 44px;'>high</div>
+					<div class='label left' style='padding-left: 50px;'>very high</div>
+					<div class='clear'></div>
+					<div  class='sepp'></div>
+					<div style='width: 57px;' class='value left green'>< 100</div>
+					<div style='width: 78px;' class='value left yellow'>100 to 129</div>
+					<div style='width: 73px;' class='value left orange'>130 to 159</div>
+					<div style='width: 76px;' class='value left darkorange'>160 to 190</div>
+					<div style='width: 66px;' class='value left red'>> 190</div>
+					<div class='clear'></div>
+					<div style='margin-left: 119px' class='you'>YOU: 110</div>
+				</div>
+				<div class='separate'></div>
+				<h4>Triglycerides: 84 mg/dL</h4>
+				<div class='range tri'>
+					<div class='label left' style='padding-left: 41px;'>optimal</div>
+					<div class='label left' style='padding-left: 63px;'>borderline</div>
+					<div class='label left' style='padding-left: 62px;'>high</div>
+					<div class='label left' style='padding-left: 57px;'>very high</div>
+					<div class='clear'></div>
+					<div  class='sepp'></div>
+					<div style='width: 114px;' class='value left green'>< 150</div>
+					<div style='width: 97px;' class='value left orange'>150 to 199</div>
+					<div style='width: 90px;' class='value left darkorange'>200 to 500</div>
+					<div style='width: 69px;' class='value left red'>> 500</div>
+					<div class='clear'></div>
+					<div style='margin-left: 84px' class='you'>YOU: 84</div>
+				</div>
+			</div>
+		</div>
+		<div class='block'>
+			<div class='inner'>
+				<h3>Vitamine D</h3>
+				<h4>Total vitamin D:19 ng/mL</h4>
+				<div class='range d'>
+					<div class='label left' style='padding-left: 57px;'>defficient</div>
+					<div class='label left' style='padding-left: 68px;'>insufficient</div>
+				 	<div class='label left' style='padding-left: 53px;'>sufficient</div>
+					<div class='clear'></div>
+					<div class='sepp'></div>
+					<div class='value left red'>< 20</div>
+					<div class='value left orange'>20 to 30</div>
+					<div class='value left green'>31 to 100</div>
+					<div class='clear'></div>
+					<div class='you'>YOU: 19</div>
+				</div>
+			</div>
+		</div>
+		<div class='badge'>
+			<div class='veredict left green'></div>
+			<div class='summary left'>
+				<h3>Complete Blood Cell Count (CBC)</h3>
+				<h4>Normal for all values, includingTotal vitamin D:19 ng/mL</h4>
+			</div>
+			<div class='clear'></div>
+		</div>
+		<div class='badge'>
+			<div class='veredict left green'></div>
+			<div class='summary left'>
+				<h3>Chemistry</h3>
+				<h4>Normal for iron, transferrin stauration, and ferritin.</h4>
+			</div>
+			<div class='clear'></div>
+		</div>
+		<div class='badge'>
+			<div class='veredict left green'></div>
+			<div class='summary left'>
+				<h3>Urinalysis</h3>
+				<h4>Normal for all values, including color, appearance and protein.</h4>
+			</div>
+			<div class='clear'></div>
+		</div>
+	</div>
+</body>
+</html>
