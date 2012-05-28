@@ -2,56 +2,24 @@
 <html>
 <head>
 	<title>Piddle</title>
+
 	<meta charset="utf-8" />
-	<!--meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"-->
+	
 	<link href="/css/piddle.css" rel="stylesheet/less">
 	<link href="/css/global.css" rel="stylesheet">
 	<link href="/css/reset.css" rel="stylesheet">
+	
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<script src="/js/lib/jquery.js" ></script>
 	<script src="/js/lib/less.js"></script>
 	<script src="/js/lib/cycle.js"></script>
 	<script src="/js/lib/swipe.js"></script>
-	<script>
-	var slide = function(container, duo) {
-		$(container + ' .slide').cycle({
-			fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
-			speed:    800, 
-  		timeout:  6000000000,
-  		pause:   'true',
-  		pauseOnPagerHover: 'true',
-  		pager:  container + ' .dots',
-  		onPagerEvent: function(i, li) {
-  			$(container + ' .pager').removeClass('activePager');
-  			
-  			if(duo && i>1) {
-  				i = i-1;
-  			}
-
-  			$($(container + ' .pager')[i]).addClass('activePager');	
-  		},
-  		before:function(){}
-		});
-	};
-
-	$(function() {
-		slide('#tutorial');
-		slide('#insight',true);
-
-		$('#play').click(function(){
-			$('#video').animate({height:500},800);
-			$('#video #controls').animate({'padding-top':200,opacity:0},800, function() {
-				$('#video #controls').hide(0);
-				$('#player').fadeIn(1000);
-			});
-			return false;
-		});	
-	});
-	</script>
+	<script src="/js/piddle.js"></script>
 </head>
+
 <body>
 	<header>
-		<section id="intro">
+		<section>
 			<figure>
 				<svg width="150" height="220" xmlns="http://www.w3.org/2000/svg">
 					<g>
@@ -63,49 +31,55 @@
 					</g>
 				</svg>
 			</figure>
+			
 			<h1>Piddle</h1>
+			
 			<p>An iPhone app for urine test strip analysis. Piddle guides you through the testing proccess, takes and tracks the test results. It explains the meaning of each result and shows how your value falls within normal ranges. The results are stored and can be shared with your doctor.</p>
+
 			<div class='clear'></div>
 		</section>
 	</header>
+
 	<article>
-		<section id="video">
-			<div id='controls'>
-				<a id='play' href='#video'>
-					<figure >
-						<svg id='play' width="100" height="100" xmlns="http://www.w3.org/2000/svg">
-							<g>
-							<path stroke="#F0F6F9" transform="rotate(90 49.8143 50.1)" id="svg_5" d="m17.5,80.700005l32.314079,-61.200005l32.31443,61.200005l-64.62851,0z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="7" fill="none"></path>
-							</g>
-						</svg>
-					</figure>
-				</a>
-			</div>
-			<div id='player'>
-				<iframe width="710" height="400" src="http://www.youtube.com/embed/F6_qW6TWE10?rel=0" frameborder="0" allowfullscreen></iframe>
-			</div>
+		<section id='video'>
+			<a id='play' href='#video'>
+				<figure >
+					<svg id='play' width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+						<g>
+							<path stroke="#D3DADD" transform="rotate(90 49.8143 50.1)" id="svg_5" d="m17.5,80.700005l32.314079,-61.200005l32.31443,61.200005l-64.62851,0z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="7" fill="none"></path>
+						</g>
+					</svg>
+				</figure>
+			</a>
+
+			<iframe id='player' src="http://www.youtube.com/embed/F6_qW6TWE10?rel=0" frameborder="0" allowfullscreen></iframe>
 		</section>
-		<section id='tutorial' class='area'>
-			<div class='tell'>
+
+		<section id='intro' class='area'>
+			<div class='left'>
 				<ul>
 					<li>
-						<h4 class='pager activePager'>Urinalysis</h4>
-						<p>Urinalysis is an important tool in disease detection, as well as monitoring and screening health.Abnormalities can be indicative of diseases of the urinary system as well as other organ systems, including liver function, and carbohydrate metabolism. Chemical evaluation of urine can be measured using a commercially available in house dipstick test. The app currently works with <a href='http://www.medical.siemens.com/webapp/wcs/stores/servlet/ProductDisplay~q_catalogId~e_-111~a_catTree~e_100001,1023069,1028367~a_langId~e_-111~a_productId~e_172995~a_storeId~e_10001.htm'>Multistix® 10 SG Reagent Strips</a>. The stips can preform analyses on bilirubin, blood, glucose, ketones, pH, protein, specific gravity, urobilinogen, leukocytes, and nitrite.</p>
+						<h4 class='activePager'>Why urinalysis?</h4>
+
+						<p>Urinalysis is an important tool in disease detection, as well as monitoring and screening health. Abnormalities can be indicative of diseases of the urinary system as well as other organ systems, including liver function, and carbohydrate metabolism. Chemical evaluation of urine can be measured using a commercially available in house dipstick test. The app currently works with <a href='http://www.medical.siemens.com/webapp/wcs/stores/servlet/ProductDisplay~q_catalogId~e_-111~a_catTree~e_100001,1023069,1028367~a_langId~e_-111~a_productId~e_172995~a_storeId~e_10001.htm'>Multistix® 10 SG Reagent Strips</a>. The stips can preform analyses on bilirubin, blood, glucose, ketones, pH, protein, specific gravity, urobilinogen, leukocytes, and nitrite.</p>
 					</li>
 					<li>
-						<h4 class='pager'>Guide you</h4>
-						<p>Using urine test stips can be hard, even for a profesional. It requires focus, good timing, handling many things a the same time, but more importantly, <a href='http://en.wikipedia.org/wiki/Color_blindness'>the ability to acuratlly compare colors</a>. Piddle guides you through the proccess and takes the results for you. The only thing you need to do is follow the steps, and look at your results.</p>
+						<h4>Piddle guides you through</h4>
+
+						<p>Using urine test stips can be hard, even for a profesional. It requires focus, good timing, handling many things a the same time, but more importantly, <a href='http://en.wikipedia.org/wiki/Color_blindness'>the ability to acuratelly compare colors</a>. Piddle guides you through the proccess and analyses the results for you. The only thing you need to do is follow the steps, and look at your results.</p>
 					</li>
 					<li>
-						<h4 class='pager'>Reference mat</h4>
+						<h4>The reference mat</h4>
+
 						<p>The reference mat is used to compare color ranges, this makes the system less susceptible to changes in ligthing.</pi>
 					</li>
 				<ul>
 			</div>
-			<div class='show'>
-				<ul class='slide'>
+
+			<div class='right'>
+				<ul class='slide' style="position: relative;">
 					<li>
-						<img style='width: 300px;padding-left: 150px;padding-top: 30px;' src='/img/piddle/strips.png'>
+						<img id='strips' src='/img/piddle/strips.png'>
 					</li>
 					<li class='hide'>
 						<ul id='tuts'>
@@ -121,7 +95,7 @@
 								<img src='/img/tutorial/3.png'>
 								<h3>3. Start the timer</h3>
 							</li>
-							<li style='clear:both'>
+							<li class='clear'>
 								<img src='/img/tutorial/4.png'>
 								<h3>4. Place strip in the mat</h3>
 							</li>
@@ -136,18 +110,20 @@
 						</ul>
 					</li>
 					<li class='hide'>
-						<img style='padding-left: 100px;margin-top: -30px;' src='/img/piddle/hand2.png'>
+						<img id='hand' src='/img/piddle/hand2.png'>
 					</li>
 				</ul>
-				<ul class='dots'>
-				</ul>
+
+				<ul class='dots'></ul>
 			</div>
+
 			<div class='clear'></div>
 		</section>
-		<section id='insight' class='right area'>
-			<div class='show'>
-				<ul class='slide' id='phone'>
-					<li style='width: 194px !important'>
+
+		<section id='app' class='area'>
+			<div class='left'>
+				<ul class='slide'>
+					<li><!--style='width: 194px !important'-->
 						<img src="/img/piddle/home-.png">
 					</li>
 					<li class='hide'>
@@ -160,47 +136,47 @@
 						<img src="/img/piddle/history-.png">
 					</li>
 				</ul>
-				<ul class='dots'>
-				</ul>
+
+				<ul class='dots'></ul>
 			</div>
-			<div class='tell'>
+
+			<div class='right'>
 				<ul>
 					<li>
-						<h4 class='pager activePager'>Home</h4>
+						<h4 class='activePager'>Home</h4>
 						<p>Take a test, see you results and learn about their significance. Share results with your doctor and make sure you are doing the test right by going through the tutorial.</p>
 					</li>
 					<li>
-						<h4 class='pager pager-duo'>Test</h4>
+						<h4>Test</h4>
 						<p>Each results needs to be taken at a specfic time. Piddle shows what test is next and will prompt you to take a picture at the apropiate times. After you take the picture you'll see the how piddle matched the color in the reference board, picks the appropiate one, and displays the results.</p>
 					</li>
 					<li>
-						<h4 class='pager'>Track, learn and share</h4>
+						<h4>Track, learn and share</h4>
 						<p>All tests are stored along with their respecitve photo. Here you can track your progress, learn about each test, understand their significance and see what results are consistenlly outside of normal ranges. You can also choose to share one, a few, or all of you results with your healthcare team.</p>
 					</li>
 				<ul>
 			</div>
+
 			<div class='clear'></div>
 		</section>
-		<section id='team' class='area'>
-			<div class='tell'>
+
+		<section id='story' class='area'>
+			<div class='left'>
 				<h2>The Story behing Piddle.</h2>
 
-				<p>The first version of Piddle was created in 24 hours at <a href='http://healthhackday.com/stockholm2012/'>HealthHackDay</a> in Stockholm on a weekend in May 2012. The team (on the right) <a href='http://marcinignac.com'>Marcin Ignac</a>, <a href='http://twiter.com/ianjorgensen'>Ian Jørgesen</a> and <a href='http://twiter.com/masylum'>Pau Ramon</a> stayed up all night making the application and <strong>won first prize</strong>. The concept was developed with help of Interaction Designers from <a href='http://ciid.dk'>Copenhagen Institute of Interaction Design</a>: <a href='http://designhealthtech.tumblr.com/'>Sara Krugman</a>, <a href='http://katzorina.com/'>Kat Zorina</a>, <a href='www.cargocollective.com/andrewnip'>Andrew Nip</a> and <a href='www.hideakimatsui.com'>Hideaki Matsui</a>.</p>
+				<p>The first version of Piddle was created in 24 hours at <a href='http://healthhackday.com/stockholm2012/'>HealthHackDay</a> in Stockholm on a weekend in May 2012. The team (on the right) <a href='http://marcinignac.com'>Marcin Ignac</a>, <a href='http://twiter.com/ianjorgensen'>Ian Jørgesen</a> and <a href='http://twiter.com/masylum'>Pau Ramon</a> stayed up all night making the application and <strong>won first prize</strong>. The concept was developed with help of Interaction Designers from <a href='http://ciid.dk'>Copenhagen Institute of Interaction Design</a>: <a href='http://designhealthtech.tumblr.com/'>Sara Krugman</a>, <a href='http://katzorina.com/'>Kat Zorina</a>, <a href='http://www.cargocollective.com/andrewnip'>Andrew Nip</a> and <a href='http://www.hideakimatsui.com'>Hideaki Matsui</a>.</p>
 
 				<p>The current verison of the app is limited to one strip and its primary focused on comsumers. We are working towards supporting multiple strips and are developing a stand alone one click version better suited for lab enviroments. If you have any questions, feedback or are interested in testing the applicaiton, please send us a mail at <a href="mailto:hi@linehq.com?Subject=Piddle">hi@linehq.com</a>. We would love to hear from you.</p>
 			</div>
-			<div class='show'>
-				<img src='/img/piddle/team.jpg' alt='health hack day team'>
-				
-				<!--<a href='http://www.onetouch.com/'><img src='/img/myonetouch_logo.gif' alt='one touch logo'></a><br>
-				<a href='http://www.medtronicdiabetes.net/products/carelinkpersonalsoftware'><img src='/img/medtronic.jpeg' alt='bgstar logo'></a>-->
+			
+			<div>
+				<img src='/img/piddle/team.jpg' alt='Health Hack Day Team'>
 			</div>
+
 			<div class='clear'></div>
 		</section>
 	</article>
-	
-	<footer>
-		<p class="copyright"><!--L&middot;I&middot;N&middot;E&middot;-->© 2012</p>
-	</footer>
+
+	<footer>© 2012</footer>
 </body>
 </html>
