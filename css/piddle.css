@@ -95,7 +95,7 @@ header {
 
 #intro {
 	margin-top: 20px;
-	
+
 	.activeSlide {
 		background: @verde;	
 	}
@@ -135,7 +135,11 @@ header {
 	}
 
 	.right {
-		padding-left: 400px;
+		padding-left: 450px;
+	}
+	
+	.dots {
+		padding-left: 90px;
 	}
 }
 
