@@ -9,6 +9,8 @@ server.get('/results/blood/23as32df4ljd2kds', serve.file('./html/blood.html'));
 
 server.get('/preview', serve.file('./html/home.html'));
 
+server.get('/piddle', serve.file('./html/piddle.html'));
+
 server.get('/js/*', serve.file('./js/{*}'));
 
 server.get('/css/*', serve.file('./css/{*}'));
