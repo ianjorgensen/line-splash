@@ -235,3 +235,115 @@ footer {
 .hide { display: none; }
 
 .clear { clear: both; }
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+	
+	body {
+		overflow-x: hidden;
+	}
+
+	header {
+		margin-top: -18px;
+
+		figure {
+			float: none !important;
+		}
+		svg {
+			margin-left: 30px;
+		}
+		h1 {
+			padding-top: 30px;
+			text-align: center;
+		}
+	}
+
+	section {
+		width: 300px;
+	}
+
+	.left {
+		float: none;
+		width: 300px;
+	}	
+	
+	#video {
+		height: 220px;
+
+		#play {
+			display: none;
+		}
+
+		#player {
+			display: block;
+			width: 300px;
+			height: 150px;
+			padding-top: 50px;
+			padding-left: 0px;
+		}
+	}
+	#intro {
+		.right {
+			padding-left: 0px;
+		}
+
+		#strips {
+			padding-left: 0px;
+		}
+
+		#tuts {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+
+		#hand {
+			padding-left: 0px;
+			width: 300px;
+		}
+
+		.dots {
+			padding-left: 65px;
+		}
+	}
+
+	#app {
+		.slide {
+			background-position-x: 30px;
+
+			li {
+				padding-left: 53px;
+			}
+		}
+
+		.dots {
+			margin-left: 92px;
+		}
+
+		.right {
+			padding-left: 0px;
+			padding-top: 35px;
+			margin-top: -1040px;
+		}
+
+		.left {
+			margin-top: 560px;
+		}
+	}
+
+	#story img {
+		height: 199px;
+		width: 300px;
+		padding-left: 0px;
+	}
+
+	.area {
+		margin-top: 40px;
+		padding-bottom: 40px;
+	}
+
+	.left {
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
+}
