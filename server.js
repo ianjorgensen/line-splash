@@ -11,6 +11,8 @@ server.get('/preview', serve.file('./html/uno.html'));
 
 server.get('/uno', serve.file('./html/uno.html'));
 
+server.get('/old', serve.file('./html/old.html'));
+
 server.get('/piddle', serve.file('./html/piddle.html'));
 
 server.get('/js/*', serve.file('./js/{*}'));
