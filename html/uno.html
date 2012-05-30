@@ -1,0 +1,377 @@
+<!doctype html>
+<html>
+<head>
+	<title>Uno</title>
+	<meta charset="utf-8" />
+	<!--meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"-->
+	
+	<link href="/css/uno.css" rel="stylesheet/less">
+	<link href="/css/global.css" rel="stylesheet">
+	<link href="/css/reset.css" rel="stylesheet">
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<script src="/js/lib/jquery.js" ></script>
+	<script src="/js/lib/less.js"></script>
+	<script src="/js/lib/cycle.js"></script>
+	<script>
+
+		var index = {data:0, insight:0, social:0};
+
+		var before = {
+			data : function(old, li) {
+				index.data = $(li).attr('id');
+
+				$.each($('#data h4'), function(i, item) {
+					color = '#434343';
+					if(i == index.data) {
+						color = '#BB2261';
+					}
+					$(item).css({color: color});
+				});
+
+				$.each($('#data .dots li'), function(i, item) {
+					color = 'lightgray';
+					if(i == index.data) {
+						color = '#BB2261';
+					}
+					$(item).css({background: color});
+				});
+			},
+			insight: function(old, li) {
+				index.insight = $(li).attr('id');
+				$.each($('#insight .dots li'), function(i, item) {
+					color = 'lightgray';
+					if(i == index.insight) {
+						color = '#107B9A'
+					}
+					$(item).css({background: color});
+				});
+			},
+			social: function(old, li) {
+				index.social = $(li).attr('id');
+				$.each($('#social .dots li'), function(i, item) {
+					color = 'lightgray';
+					if(i == index.social) {
+						color = '#128A56'
+					}
+					$(item).css({background: color});
+				});
+			}
+		};
+
+		var slide = function(father, before) {
+			$(father + ' .slide').cycle({
+				fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+				speed:    1000, 
+    		timeout:  6000,
+    		pause:   1,
+    		pager:  father + ' .dots',
+    		onPagerEvent: function(i,index) {console.log(i,index)},
+    		before: before || function(){}
+			});
+		};
+
+		var thanks = function() {
+			$('form').fadeOut(function() {
+				$('#thanks').fadeIn();
+			});
+		};
+
+		var error = function() {
+			$('form').fadeOut(function() {
+				$('#error').fadeIn();
+				setTimeout(function() {
+					$('#error').fadeOut(function() {
+						$('form').fadeIn();
+					});
+				}, 1500);
+			});
+		};
+
+		$(function(){
+			slides = {
+				data: slide('#data', before.data),
+				insight: slide('#insight', before.insight),
+				social: slide('#social', before.social)
+			};
+
+			var over = function(name, color) {
+				return function() {
+					if(index[name] != $(this).attr('id')) {
+						$(this).css({background: color});
+					}	
+				}
+			}
+
+			$('#data .dots li').hover(over('data', '#EC98BB'),over('data', 'lightgray'));
+			$('#insight .dots li').hover(over('insight', '#17AFD9'),over('insight', 'lightgray'));
+			$('#social .dots li').hover(over('social', '#38E59A'),over('social', 'lightgray'));
+			
+			$($('#data .dots li')[0]).css({background: '#BB2261'});
+			$($('#insight .dots li')[0]).css({background: '#107B9A'});
+			$($('#social .dots li')[0]).css({background: '#128A56'});
+
+			$('#play').click(function(){
+				$('#player').html('<iframe src="http://player.vimeo.com/video/38994934?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'); 
+
+				$('#play').fadeOut(1500);
+				$('#hero .tell').animate({width:'500px'}, 1500, function() {
+						$('#player').fadeIn(4000);
+				});
+			});
+			$('#subForm').submit(function (e) {
+		    e.preventDefault();
+		    $.getJSON(
+		      this.action + "?callback=?",
+		      $(this).serialize(),
+		      function (data) {
+		        if (data.Status === 400) {
+		          error();
+		        } else { // 200
+		          thanks();
+		        }
+		      }
+		    );
+		  });
+		});
+	</script>
+</head>
+<body>
+	<header><div class='line'></div><div class='bg'></div></header>
+	<!--div id='icons'>
+		<img src='/img/icons/data.png' id='dataicon'>
+		<img src='/img/icons/insight.png' id='insighticon'>
+		<img src='/img/icons/social.png' id='socialicon'>
+	</div-->
+	<article>
+		<section id="hero">
+			<div class='tell'>
+				<div id='logo'></div>
+				<p>Managing diabetes requires managing data. Living with diabetes we are faced with individual readings that make up a bigger, and more important picture. LINE is a social platform to visualise, contextualise and share blood sugar data.</p>
+				<p>We'll be rolling out early versions of our product to a small group of testers over the next couple of months. If you give us your email, we'll let you know when we are ready for you. Your involvement is what we need to make a product that will change people's lives.</p>
+				<form action="http://linehq.createsend.com/t/j/s/xhyik/" method="post" id="subForm">
+						<p>Keep me in the loop<span><input type="text" name="cm-xhyik-xhyik" placeholder='enter your email' id="xhyik-xhyik" size="25" /></span><a href='#' onclick='$("#subForm").submit()' id='submit'>+</a></p>
+				</form>
+				<p id='thanks'>We'll keep you in the loop!</p>
+				<p id='error'>Oops. The email doesnt look right, try again.</p>
+			</div>
+			<div class='show'>
+				<figure>
+					<a href='#' id='play'><img src='/img/icons/play.png'/></a>
+				</figure>
+				<div id='player'>
+				</div>
+			</div>
+			<div class='clear'></div>
+		</section>
+		<section id='slogan' class='area'>
+			<h2>Connecting the dots for people with type 1 diabetes.</h2>
+			<p class='intro'>Line visualises and lets you explore your data with others.</p>
+			<!--ul>
+				<li>
+					<img src='/img/icons/data.png'>
+					<h3>Get the big picture</h3>
+				</li>
+				<li>
+					<img src='/img/icons/insight.png'>
+					<h3>Gain insightsx</h3>
+				</li>
+				<li>
+					<img src='/img/icons/social.png'>
+					<h3>Connect to others like you</h3>
+				</li>
+			</ul-->
+			<div class='clear'></div>
+		</section>
+		<section id='data' class='area'>
+			<div class='sideline'></div>
+			<div class='content'>
+				<div style='float:left'>
+					<h2>See and explore your data.</h2>
+					<p class='intro'>Dive into your readings see the big picture.</p>
+				</div>
+				<div class='clear'></div>
+				<div class='tell'>
+					<ul>
+						<li>
+							<h4>Visualise</h4>
+							<p>We need to be able to see and explore the larger picture. LINE connects disparate points and interactively visualises the data enabling us to see trends between days weeks and months. Lets begin a conversation with our data.</p>
+						</li>
+						<li>
+							<h4>Dive into the details</h4>
+							<p>Here we see how the week looks through individual numbers and individual days. These are the dots that make the line, we need them to understand how the big picture is made. We can really dive into the numbers day by day. In the context of a week. Switch from week view to an adjustable timeline.</p>
+						</li>
+						<li>
+							<h4>Connect the rest of your life</h4>
+							<p>Diabetes is integrated into every aspect of life, blood sugars are effected by and effect our weight, exercise and our every day. LINE connects to your Withings scale and Fitbit to pull in weight and activity, helps you understand the relation between weight and your blood sugar that will help you keep an eye on your ketones. An often forgotten part of our treatment.
+							<br>Via our api you can connect your data to partner services, we believe we can do better than CSV exports.
+							</p>
+						</li>
+					<ul>
+				</div>
+				<div class='show'>
+					<ul class='slide'>
+						<li id='0' class='portrait'><div><img src="/img/screens/phone.png" height="450" alt="Slide 2"></div></li>
+						<!--<li class='portrait'><div><img src="/img/screens/data-expand.png" height="450" alt="Slide 2"></div></li>
+						<li class='portrait'><div><img src="/img/screens/data-low.png" height="450" alt="Slide 2"></div></li>
+						<li class='portrait'><div><img src="/img/screens/data-count.png" height="450" alt="Slide 2"></div></li>-->
+						<!--<li id='1' class='portrait'><div><img style='margin-left: -110px;' src="/img/screens/data-spiral.png" height="450" alt="Slide 2"></div></li>-->
+						<li id='1' class='landscape'><div><img src="/img/screens/data-graph.png" height="240" alt="Slide 3"></div></li>
+						<li id='2' class='portrait'><div><img src="/img/screens/connect3.png" height="450" alt="Slide 2"></div></li>
+					</ul>
+					<ul class='dots'>
+					</ul>
+				</div>
+				<div class='clear'></div>
+			</div>
+		</section>
+		<section id='insight' class='right area'>
+			<div class='sideline'></div>
+			<div class='content'>
+				<h2>Insights.</h2>
+				<p class='intro'>Start understanding</p>
+				<div class='show'>
+					<ul class='slide'>
+						<li id='0' class='portrait'><div><img src="/img/screens/inisght-personal.png" height="450" alt="Slide 2"></div></li>
+						<li id='1' class='portrait'><div><img src="/img/screens/insight-community.png" height="450" alt="Slide 2"></div></li>
+					</ul>
+					<ul class='dots'>
+					</ul>
+				</div>
+				<div class='tell'>
+					<p>Insights are an important part of changing learning into practise. We discover trends and prompts you to annotate your data when its important. Weekly insight reinforce good habits.</p>
+					<p>We filter out insights that are valuable for you from the community and help to remind you of your own.</p>
+					<p>Here is how we do it...</p>
+					<ul>
+						<li>
+							<h4>Leniency</h4>
+							<p>How many readings you take how consistent are you. Are you taking checking blood sugar at every time in the day. Have you checked your blood sugar at night lately.</p>
+						</li>
+						<li>
+							<h4>Target practise</h4>
+							<p>How well you hit your targets this week compared to last week.</p>
+						</li>
+						<li>
+							<h4>Time to explain yourself</h4>
+							<p>we ask you to explain what influenced the readings, days or weeks that stand out. That way you can come back and understand what happened, learn by reflecting.</p>
+						</li>
+						<li>
+							<h4>How you stack up to others</h4>
+							<p>We are all part of a community, with community insight we show you where you currently belong. And give you motivation through examples of others on how you can do better. We strongly believe that seeing others, can transform the way we see ourselves.</p>
+						</li>
+					<ul>
+				</div>
+				<div class='clear'></div>
+			</div>
+		</section>
+		<section id='social' class='area'>
+			<div class='sideline'></div>
+			<div class='content'>
+				<h2>Two lines are better than one.</h2>
+				<p class='intro'>Start connecting and relating to people and their data</p>
+				<div class='tell'>
+					<p>LINE is set up for users to support one another through constructive feedback, to open dialogue about lifestyle and self care methods. sharing of data within a supportive community helps us learn new methods for dealing with the challenges that come with living with diabetes. And most importantly they’ll help you keep you real.</p>
+					<p>The data is meaningful but its the stories behind the data that help us understand it. We all have good days and bad days. By seeing how other people deal with their data we understand ourselves better.</p>
+					<p>We learn best from people like us. After building a profile on LINE you can connect with other people like you and see how they are doing. We believe that community and dialogue about our readings is crucial to learning.</p>
+					<p>Your data is yours, we’ll keep it safe and only visible to your network.</p>
+				</div>
+				<div class='show'>
+					<ul class='slide'>
+						<li id='0' class='portrait'><div><img src="/img/screens/people.png" height="450" alt="Slide 2"></div></li>
+						<li id='1' class='portrait'><div><img src="/img/screens/sara.png" height="450" alt="Slide 2"></div></li>
+						<li id='2' class='portrait'><div><img src="/img/screens/data-comment.png" height="440" alt="Slide 2"></div></li>
+					</ul>
+					<ul class='dots'>
+					</ul>
+				</div>
+				<div class='clear'></div>
+			</div>
+		</section>
+		<section id='upload'>
+			<div class='tell'>
+				<h2>Uploading data is a breeze.</h2>
+				<p>We think that easiest way to get data into LINE is through Glooko and  IBGstar, but export formats from major diabetes management applications will work too. If you can get the data of your meter you can get it into Line.</p>
+				<p>To get started simply send an email with your data to upload@diabcu.com (we are setting up the @linehq.com email) and we’ll do the rest. Glooko support is currently online, iBGStar support going to be released once iBGStar is FDA approved. If you have any questions don’t hesitate to contact us, we love talking to our users.</p>
+			</div>
+			<div class='show'>
+				<ul>
+					<li><a href='http://glooko.com'><img id='glooko' src='/img/glooko-logo.png' alt='glooko logo'></a></li>
+					<li><a href='http://www.bgstar.com/'><img id='bgstar' src='/img/bgstar-logo2.png' alt='bgstar logo'></a></li>
+				</ul>
+				<div class='clear'></div>
+				<!--<a href='http://www.onetouch.com/'><img src='/img/myonetouch_logo.gif' alt='one touch logo'></a><br>
+				<a href='http://www.medtronicdiabetes.net/products/carelinkpersonalsoftware'><img src='/img/medtronic.jpeg' alt='bgstar logo'></a>-->
+			</div>
+			<div class='clear'></div>
+		</section>
+		<section id='team' class='last'>
+			<h2>The dots behind Line.</h2>
+			<ul>
+				<li class='brand l'>L</li>
+				<li><img src='/img/faces/me.png'></li>
+				<li class='dot' id='ian'>
+					<div class='contact'>
+						<ul>
+							<li class='twitter'>
+								<a href='http://twitter.com/ianjorgensen'><img src='/img/icons/twitterLogowhite.png'></a>
+							</li>
+							<li class='mail'>
+								<a href="mailto:ian@linehq.com"><img src='/img/icons/mail24white.png'></a>
+							</li>
+						</ul>
+					</div>
+					<text>
+						<div class='name'>Ian<br>Jorgensen</div>
+						<div class='title'>Hacker<br>Maker of things</div>
+					</text>
+				</li>
+				<li class='brand i'>I</li>
+				<li><img src='/img/faces/sara.jpg'></li>
+				<li class='dot' id='sara'>
+					<div class='contact'>
+						<ul>
+							<li class='twitter'>
+								<a href='http://twitter.com/skrugman'><img src='/img/icons/twitterLogowhite.png'></a>
+							</li>
+							<li class='mail'>
+								<a href="mailto:sara@linehq.com"><img src='/img/icons/mail24white.png'></a>
+							</li>
+						</ul>
+					</div>
+					<text>
+						<div class='name'>Sara<br>Krugman</div>
+						<div class='title'>Designer<br>Making sense</div>
+					</text>
+				</li>
+				<li class='brand n'>N</li>
+				<li><img src='/img/faces/andrew.jpg'></li>
+				<li class='dot' id='andrew'>
+					<div class='contact'>
+						<ul>
+							<li class='twitter'>
+								<a href='http://twitter.com/masylum'><img src='/img/icons/twitterLogowhite.png'></a>
+							</li>
+							<li class='mail'>
+								<a href="mailto:pau@linehq.com"><img src='/img/icons/mail24white.png'></a>
+							</li>
+						</ul>
+					</div>
+					<text>
+						<div class='name'>Marcin<br>Ignac</div>
+						<div class='title'>Coding Artist<br>Data Viz</div>
+					</text>
+				</li>
+				<li class='brand e'>E</li>
+			<ul>
+			<div class='clear'></div>
+		</section>
+	</article>
+	
+	<footer>
+		<p class="copyright"><!--L&middot;I&middot;N&middot;E&middot;-->© 2012</p>
+		<div class='line'></div>
+	</footer>
+</body>
+</html>

@@ -7,7 +7,9 @@ server.get('/', serve.file('./html/splash.html'));
 
 server.get('/results/blood/23as32df4ljd2kds', serve.file('./html/blood.html'));
 
-server.get('/preview', serve.file('./html/home.html'));
+server.get('/preview', serve.file('./html/uno.html'));
+
+server.get('/uno', serve.file('./html/uno.html'));
 
 server.get('/piddle', serve.file('./html/piddle.html'));
 

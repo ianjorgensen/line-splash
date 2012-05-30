@@ -1,211 +1,59 @@
 <!doctype html>
 <html>
 <head>
-	<title>line | connecting the dots</title>
+	<title>Line</title>
+
+	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link href="/css/reset.css" rel="stylesheet">
+	<link href="/css/splash.css" rel="stylesheet/less">
+
 	<script src="/js/lib/jquery.js" ></script>
-	<script>
-
-	var thanks = function() {
-		$('form').fadeOut(function() {
-			$('#thanks').fadeIn();
-		});
-	};
-
-	var error = function() {
-		$('form').fadeOut(function() {
-			$('#error').fadeIn();
-			setTimeout(function() {
-				$('#error').fadeOut(function() {
-					$('form').fadeIn();
-				});
-			}, 1500);
-		});
-	};
-
-	$(function () {
-	  $('#subForm').submit(function (e) {
-	    e.preventDefault();
-	    $.getJSON(
-	      this.action + "?callback=?",
-	      $(this).serialize(),
-	      function (data) {
-	        if (data.Status === 400) {
-	          error();
-	        } else { // 200
-	          thanks();
-	        }
-	      }
-	    );
-	  });
-	});
-	</script>
-	<style>
-	#main {
-		margin: 0 auto;
-		width: 600px;
-		text-align: left;
-	}
-	#logo {
-		margin: 0 auto;
-		background: url('/img/logo-color.png');
-		width: 400px;
-		height: 100px;
-		margin-top: 200px;
-	}
-	body {
-		font-family: 'pt sans',arial,helvetica,sans-serif;
-		background: #F0F6F9;
-	}
-	h1 {
-		color: black;
-		font-size: 20px;
-		text-align: center;
-		font-weight: bold;
-	}
-	p {
-		color: #666;
-		font-size: 14px;
-	}
-	form {
-		text-align: center;
-	}
-	form p {
-		font-weight: bold;
-		font-size: 18px;
-		color: black;
-	}
-	#thanks {
-			font-weight: bold;
-			font-size: 18px;
-			color: black;
-			display: none;
-			text-align:center;
-	}
-	#error {
-			font-weight: bold;
-			font-size: 18px;
-			color: black;
-			display: none;
-			text-align:center;
-	}
-	a {
-		text-decoration: none;
-		color: blue;
-		padding-left: 5px;
-		font-size: 22px;
-	}
-	#header {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width:100%;
-    background: white;
-  }
-  #footer {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-  .line {
-    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgd2lkdGg9IjEwMCUiPgogICAgPGRlZnM+CiAgICAgICAgPHBhdHRlcm4gaWQ9InJhaW5ib3ciIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjAiIHk9IjAiIHdpZHRoPSI1MDBweCIgaGVpZ2h0PSIxMHB4Ij4KICAgICAgICAgICAgICAgICAgICA8cmVjdCB4PSIwcHgiIHk9IjAiIHdpZHRoPSIxNXB4IiBoZWlnaHQ9IjEwcHgiIHN0eWxlPSJmaWxsOiMxNzIzMjciIC8+CiAgICAgICAgICAgICAgICAgICAgPHJlY3QgeD0iMTVweCIgeT0iMCIgd2lkdGg9IjEzcHgiIGhlaWdodD0iMTBweCIgc3R5bGU9ImZpbGw6IzE5MzcyYyIgLz4KICAgICAgICAgICAgICAgICAgICA8cmVjdCB4PSIyOHB4IiB5PSIwIiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIxMHB4IiBzdHlsZT0iZmlsbDojMzI3MzQ0IiAvPgogICAgICAgICAgICAgICAgICAgIDxyZWN0IHg9IjUycHgiIHk9IjAiIHdpZHRoPSIyM3B4IiBoZWlnaHQ9IjEwcHgiIHN0eWxlPSJmaWxsOiM0MzdlNGMiIC8+CiAgICAgICAgICAgICAgICAgICAgPHJlY3QgeD0iNzVweCIgeT0iMCIgd2lkdGg9IjczcHgiIGhlaWdodD0iMTBweCIgc3R5bGU9ImZpbGw6Izg2OTk1NiIgLz4KICAgICAgICAgICAgICAgICAgICA8cmVjdCB4PSIxNDhweCIgeT0iMCIgd2lkdGg9IjMxcHgiIGhlaWdodD0iMTBweCIgc3R5bGU9ImZpbGw6I2IwOGY0MiIgLz4KICAgICAgICAgICAgICAgICAgICA8cmVjdCB4PSIxNzlweCIgeT0iMCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMTBweCIgc3R5bGU9ImZpbGw6I2I0NjgzOSIgLz4KICAgICAgICAgICAgICAgICAgICA8cmVjdCB4PSIyMTFweCIgeT0iMCIgd2lkdGg9IjEzcHgiIGhlaWdodD0iMTBweCIgc3R5bGU9ImZpbGw6I2E0Mzk0MSIgLz4KICAgICAgICAgICAgICAgICAgICA8cmVjdCB4PSIyMjRweCIgeT0iMCIgd2lkdGg9IjQ4cHgiIGhlaWdodD0iMTBweCIgc3R5bGU9ImZpbGw6IzljMmM1MiIgLz4KICAgICAgICAgICAgICAgICAgICA8cmVjdCB4PSIyNzJweCIgeT0iMCIgd2lkdGg9IjZweCIgaGVpZ2h0PSIxMHB4IiBzdHlsZT0iZmlsbDojYmI0MjZiIiAvPgogICAgICAgICAgICAgICAgICAgIDxyZWN0IHg9IjI3OHB4IiB5PSIwIiB3aWR0aD0iMThweCIgaGVpZ2h0PSIxMHB4IiBzdHlsZT0iZmlsbDojOGEyZjVjIiAvPgogICAgICAgICAgICAgICAgICAgIDxyZWN0IHg9IjI5NnB4IiB5PSIwIiB3aWR0aD0iNXB4IiBoZWlnaHQ9IjEwcHgiIHN0eWxlPSJmaWxsOiM2ZDQxNmQiIC8+CiAgICAgICAgICAgICAgICAgICAgPHJlY3QgeD0iMzAxcHgiIHk9IjAiIHdpZHRoPSI1cHgiIGhlaWdodD0iMTBweCIgc3R5bGU9ImZpbGw6IzQxMzI2NCIgLz4KICAgICAgICAgICAgICAgICAgICA8cmVjdCB4PSIzMDZweCIgeT0iMCIgd2lkdGg9IjVweCIgaGVpZ2h0PSIxMHB4IiBzdHlsZT0iZmlsbDojMjk0MTZlIiAvPgogICAgICAgICAgICAgICAgICAgIDxyZWN0IHg9IjMxMXB4IiB5PSIwIiB3aWR0aD0iNDZweCIgaGVpZ2h0PSIxMHB4IiBzdHlsZT0iZmlsbDojNTY5MGE1IiAvPgogICAgICAgICAgICAgICAgICAgIDxyZWN0IHg9IjM1N3B4IiB5PSIwIiB3aWR0aD0iOHB4IiBoZWlnaHQ9IjEwcHgiIHN0eWxlPSJmaWxsOiMyZTg0OWQiIC8+CiAgICAgICAgICAgICAgICAgICAgPHJlY3QgeD0iMzY1cHgiIHk9IjAiIHdpZHRoPSI1OHB4IiBoZWlnaHQ9IjEwcHgiIHN0eWxlPSJmaWxsOiMyNzY2ODYiIC8+CiAgICAgICAgICAgICAgICAgICAgPHJlY3QgeD0iNDIzcHgiIHk9IjAiIHdpZHRoPSI1cHgiIGhlaWdodD0iMTBweCIgc3R5bGU9ImZpbGw6IzIzNDM2ZSIgLz4KICAgICAgICAgICAgICAgICAgICA8cmVjdCB4PSI0MjhweCIgeT0iMCIgd2lkdGg9IjcycHgiIGhlaWdodD0iMTBweCIgc3R5bGU9ImZpbGw6IzE0MmEwNiIgLz4KICAgICAgICAgICAgICAgIDwvcGF0dGVybj4KICAgIDwvZGVmcz4KICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwcHgiIGZpbGw9InVybCgjcmFpbmJvdykiIC8+Cjwvc3ZnPgo=) !important;
-    border: 0px;
-    height: 10px;   
-    background-repeat: repeat-y;
-  }
-  input {
-  	font-size: 14px;
-		padding: 3px;
-		margin-left: 5px;
-  }
-
-  	/* Smartphones (portrait) ----------- */
-	@media only screen and (max-device-width : 480px) {
-	/*@media screen and (max-width: 510px) {*/
-		body, #header, #footer {
-			width: 310px;			
-		}
-		#header {
-			display: none;
-		}
-		#footer {
-			display: none;
-		}
-		#main {
-			margin: 0 0;
-			width: 300px;
-		}
-		#logo {
-			margin-top: 10px;
-			margin-left: -45px;
-			width: 300px;
-			background: url('/img/logo-color-small.png');
-		}
-		h1 {
-			font-size: 13px;
-		}
-
-		p {
-			padding: 10px 10px;
-		}
-
-		#form {
-			padding: 0px;
-		}
-
-		p {
-			font-size: 12px;
-		}
-		#thanks {
-			font-size: 12px;
-			margin-top: -30px;
-		}
-		#error {
-			font-size: 12px;
-			margin-top: -30px;
-		}
-		form p {
-			font-weight: bold;
-			font-size: 12px;
-			color: black;
-		}
-		#signup {
-			padding-bottom: 10px;
-		}
-		input {
-			font-size: 15px;
-		}
-		a {
-			font-size: 18px;
-		}
-	}
-	
-	</style>
-	<style type="text/css">
-	span.label,span.spacer,span.multiple span {width:120px;float:left;} 
-	span.multiple {float:left;} 
-	span.button {padding-left:120px;} 
-	div.clear {clear:both;padding-top:5px;} 
-	</style> 
-			
+	<script src="/js/lib/less.js"></script>
+	<script src="/js/lib/splash.js"></script>
 </head>
 <body>
-	<div id='header'><div class='line'></div></div>
+	<header></header>
 	<div id='main'>
-		<div id='logo'></div>
-		<h1>Connecting the dots for people with type 1 diabetes.</h1>
-		<p>Managing Diabetes means managing data. Every day we are faced with individual numbers that make up a bigger, and more important picture. Without seeing trends in the data, how are we supposed to learn from it?</p>
-		<p>Line is a platform to visualise, contextualise and share blood sugar data. We'll be rolling out early versions of our product over the next couple of months. If you give us your email, we'll let you know when we are ready for you. Your involvement is what we need to make a product that will change people's lives.</p>
-		<p id='form'>
-			<form action="http://linehq.createsend.com/t/j/s/xhyik/" method="post" id="subForm">
-					<p>Keep me in the loop<span><input type="text" name="cm-xhyik-xhyik" placeholder='enter your email' id="xhyik-xhyik" size="25" /></span><a href='#' onclick='$("#subForm").submit()' id='submit'>+</a></p>
-			</form>
-		</p>
-		<p id='thanks'>We'll keep you in the loop!</p>
-		<p id='error'>Oops. The email doesnt look right, try again.</p>
+		<figure id='logo'>
+			<img src='/img/line.png'/>
+		</figure>
+		<h1>Connecting the dots</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fringilla, erat condimentum luctus ornare, dui velit pulvinar magna, varius gravida quam odio sit amet sapien. Morbi tempus, ante in ultrices consectetur, metus quam dignissim ipsum, sit amet convallis diam ante in quam. Etiam ligula turpis, auctor at tempor non, gravida eu mauris. Ut convallis rhoncus gravida.</p>
+
+		<p>Donec vitae luctus erat. Nam et urna quis libero bibendum accumsan eu eget velit. Pellentesque euismod pulvinar eros non placerat. In justo odio, mollis sed interdum ac, lacinia aliquet felis. Etiam ante augue, pharetra nec consectetur in, varius in metus. Phasellus a fermentum orci. Aenean at mi eu orci imperdiet ornare.</p>
+
+		<h3>These are some of the things we have in store for you</h3>
+		<section id='dots'>
+			<figure>
+				<a href='/uno'>
+					<svg width="37" height="100" xmlns="http://www.w3.org/2000/svg"><g><path fill="#000000" stroke="#000000" stroke-width="0" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" d="m0.2525,14.85743l36.81992,-14.59437l0.18008,92.38127l-37,0l0,-77.7869z" id="svg_1"/></g></svg>
+					<figcaption>
+						<h2>Uno</h2>
+						<p>A platform for people with type 1 diabets to share their data and experineces. Discover patterns learn and follow others with the same condition.</p>
+					</figcaption>
+				</a>
+			</figure>
+			<figure id='piddle'>
+				<a href='/piddle'>
+					<svg width="65" height="100" xmlns="http://www.w3.org/2000/svg">
+					  <g>
+					   <rect fill="#b08f42" height="30" width="30" y="0" x="1" stroke-width="0"/>
+					   <rect fill="#437e4c" height="30" width="30" y="34" x="1" stroke-width="0"/>
+					   <rect fill="#276686" height="30" width="30" y="69" x="1" stroke-width="0"/>
+					   <rect fill="#869956" height="30" width="30" y="0" x="35" stroke-width="0"/>
+					   <rect fill="#9c2c52" height="30" width="30" y="34" x="35" stroke-width="0"/>
+					  </g>
+					</svg>
+					<figcaption>
+						<h2>Piddle</h2>
+						<p>A urine test strip analyzer. It takes the results, guides you. It Tracks results, explains their relevance and lets you share them with you doctor.
+					</figcaption>
+				</a>
+			</figure>
+			<div class='clear'></div>
+		</section>
 	</div>
-	<div id='footer'><div class='line'></div></div>
 </body>
 </html>

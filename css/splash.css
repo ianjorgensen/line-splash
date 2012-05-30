@@ -1,0 +1,107 @@
+body {
+	font-family: 'pt sans', arial, 'helvetica neue', sans-serif;
+	background: white;
+	margin: 0px;
+}
+
+#main {
+	margin-left: 30px;
+	width: 500px;
+	text-align: left;
+}
+
+#logo {
+	margin: 45px 0 30px 0;
+}
+
+h1 {
+	margin-top: -10px;
+	font-size: 30px;
+	padding-bottom: 30px;
+}
+
+p {
+	padding-bottom: 20px;
+	color: #666;
+	font-size: 14px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+#dots {
+	background: #FAFAFA;
+	padding: 30px 0;
+	margin-bottom: 30px;
+
+	figure {
+		float: left;
+		width: 50%;
+		margin: 0px;
+		opacity: 0.8;
+	}
+	figure:hover {
+		opacity: 1;
+	}
+
+	p {
+		padding: 0 10px;
+	}
+}
+
+svg {
+	display: block;
+	margin: 0 auto;
+}
+
+h3 {
+	padding-bottom: 30px;
+	font-size: 20px;
+	color: #777;
+}
+
+h2 {
+	text-align: center;
+	font-size: 25px;
+	padding: 10px 0;
+}
+
+footer {
+  width: 100%;
+  margin: 10px 30px;
+	color: #BBB;
+	font-size: 14px;
+}
+
+.clear { clear: both; }
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+	#main {
+		width: 300px;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+	#logo {
+		img {
+			width: 200px;
+		}
+	}
+	#dots {
+		figure {
+			float:none;
+			width: 100%;
+			padding-bottom: 30px;
+		}
+		#piddle {
+			padding-bottom: 0px;
+		}
+	}
+	h3 {
+		font-size: 17px;
+		padding-top: 0px;
+	}
+}
