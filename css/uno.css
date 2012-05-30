@@ -13,6 +13,7 @@ article {
 
 #logo {
 	background: url('/img/uno.png');
+	background-repeat: no-repeat;
 	width: 400px;
 	height: 100px;
 	margin-left: 300px;
