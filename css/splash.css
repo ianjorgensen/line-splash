@@ -35,7 +35,6 @@ a {
 
 #dots {
 	padding: 30px 0;
-	margin-bottom: 30px;
 
 	figure {
 		float: left;
@@ -59,7 +58,7 @@ svg {
 
 h3 {
 	padding-bottom: 30px;
-	font-size: 20px;
+	font-size: 18px;
 	color: #777;
 }
 
@@ -110,6 +109,7 @@ footer {
 		padding-bottom: 30px;
 		figure {
 			float:none;
+			padding-bottom: 20px;
 			width: 100%;
 		}
 		#piddle {
@@ -120,4 +120,37 @@ footer {
 		font-size: 17px;
 		padding-top: 0px;
 	}
+}
+
+form {
+	text-align: center;
+}
+form p {
+	font-size: 18px;
+}
+#thanks {
+		font-size: 18px;
+		display: none;
+		text-align:center;
+}
+#error {
+		font-size: 18px;
+		display: none;
+		text-align:center;
+}
+
+#follow {
+	padding-top: 20px;
+	a {
+		text-decoration: none;
+		color: blue;
+		padding-left: 5px;
+		font-size: 22px;
+	}
+}
+
+input {
+	font-size: 14px;
+	padding: 3px;
+	margin-left: 5px;
 }
