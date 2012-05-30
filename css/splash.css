@@ -86,10 +86,17 @@ footer {
 	}
 
 	#logo {
+		margin-top: 30px;
+		margin-bottom: 20px;
 		img {
 			width: 200px;
 		}
 	}
+	
+	h1 {
+		padding-bottom: 20px;
+	}
+	
 	#dots {
 		figure {
 			float:none;
