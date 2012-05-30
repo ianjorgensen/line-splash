@@ -122,21 +122,16 @@ footer {
 	}
 }
 
-form {
-	text-align: center;
-}
 form p {
 	font-size: 18px;
 }
 #thanks {
 		font-size: 18px;
 		display: none;
-		text-align:center;
 }
 #error {
 		font-size: 18px;
 		display: none;
-		text-align:center;
 }
 
 #follow {
