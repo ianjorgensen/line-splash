@@ -12,10 +12,10 @@ article {
 }
 
 #logo {
-	background: url('/img/line-uno.png');
+	background: url('/img/uno.png');
 	width: 400px;
 	height: 100px;
-	margin-left: -30px;
+	margin-left: 300px;
 }
 body {
 	font-family: 'pt sans',arial,'helvetica neue',sans-serif;
